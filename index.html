@@ -7,91 +7,83 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <nav class="navbar">
+        <div class="logo">Music Universe</div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#categories">Genres</a></li>
+            <li><a href="#activities">Community</a></li>
+        </ul>
+    </nav>
 
-    <main id="home-page" class="page active">
-        <header class="main-header">
-            <h1>🎵 MUSIC UNIVERSE</h1>
-            <p>다양한 장르의 음악을 탐험하고 기록하는 공간</p>
-        </header>
-
-        <section class="activities">
-            <div class="activity-card daily-pick">
-                <h3>📅 Today's Pick</h3>
-                <p>오늘의 추천곡을 확인해보세요!</p>
-                <button>추천 받기</button>
-            </div>
-            <div class="activity-card live-chat">
-                <h3>💬 Live Chat</h3>
-                <p>친구들의 실시간 음악 감상평</p>
-                <div class="chat-box">"재즈 들으면서 코딩 중..."</div>
-            </div>
-        </section>
-
-        <section class="genre-grid">
-            <div class="genre-card kpop" onclick="openCategory('kpop')"><h2>K-POP</h2></div>
-            <div class="genre-card rnb" onclick="openCategory('rnb')"><h2>R&B</h2></div>
-            <div class="genre-card hiphop" onclick="openCategory('hiphop')"><h2>HIP-HOP</h2></div>
-            <div class="genre-card ballad" onclick="openCategory('ballad')"><h2>BALLAD</h2></div>
-            <div class="genre-card trot" onclick="openCategory('trot')"><h2>TROT</h2></div>
-            <div class="genre-card classic" onclick="openCategory('classic')"><h2>CLASSIC</h2></div>
-            <div class="genre-card jazz" onclick="openCategory('jazz')"><h2>JAZZ</h2></div>
-            <div class="genre-card pop" onclick="openCategory('pop')"><h2>POP</h2></div>
-        </section>
-    </main>
-
-    <div id="category-overlay" class="overlay">
-        <button class="close-btn" onclick="goHome()">✕ Close</button>
-        
-        <div id="kpop" class="category-content">
-            <h1 class="cat-title">K-POP WORLD</h1>
-            <p class="cat-desc">화려한 퍼포먼스와 중독성 있는 멜로디</p>
-            <div class="post-list">
-                <div class="placeholder-post">친구들이 여기에 글을 작성할 수 있습니다.</div>
+    <header id="home" class="hero-section">
+        <div class="hero-content">
+            <h1>Discover Your Rhythm</h1>
+            <p>K-POP부터 Jazz까지, 당신의 취향을 찾아보세요.</p>
+            <a href="#categories" class="btn-main">Explore Genres</a>
+        </div>
+        <div class="daily-pick">
+            <h3>🎵 Today's Pick</h3>
+            <p>NewJeans - Hype Boy</p>
+            <div class="equalizer">
+                <span></span><span></span><span></span><span></span>
             </div>
         </div>
+    </header>
 
-        <div id="rnb" class="category-content">
-            <h1 class="cat-title">R&B SOUL</h1>
-            <p class="cat-desc">그루브와 감성이 넘치는 리듬 앤 블루스</p>
-            <div class="post-list"><div class="placeholder-post">작성된 글이 없습니다.</div></div>
+    <section id="categories" class="genre-section">
+        <h2>Music Genres</h2>
+        <div class="grid-container">
+            <div class="card kpop" onclick="enterCategory('kpop')">
+                <div class="card-bg"></div>
+                <h3>🎤 K-POP</h3>
+            </div>
+            <div class="card rnb" onclick="enterCategory('rnb')">
+                <div class="card-bg"></div>
+                <h3>🍷 R&B</h3>
+            </div>
+            <div class="card hiphop" onclick="enterCategory('hiphop')">
+                <div class="card-bg"></div>
+                <h3>🧢 Hip-hop</h3>
+            </div>
+            <div class="card ballad" onclick="enterCategory('ballad')">
+                <div class="card-bg"></div>
+                <h3>💧 Ballad</h3>
+            </div>
+            <div class="card trot" onclick="enterCategory('trot')">
+                <div class="card-bg"></div>
+                <h3>✨ Trot</h3>
+            </div>
+            <div class="card classic" onclick="enterCategory('classic')">
+                <div class="card-bg"></div>
+                <h3>🎻 Classic</h3>
+            </div>
+            <div class="card jazz" onclick="enterCategory('jazz')">
+                <div class="card-bg"></div>
+                <h3>🎷 Jazz</h3>
+            </div>
+            <div class="card pop" onclick="enterCategory('pop')">
+                <div class="card-bg"></div>
+                <h3>🎸 Pop</h3>
+            </div>
         </div>
+    </section>
 
-        <div id="hiphop" class="category-content">
-            <h1 class="cat-title">HIP-HOP</h1>
-            <p class="cat-desc">비트와 라임, 그리고 스웨그</p>
-            <div class="post-list"><div class="placeholder-post">작성된 글이 없습니다.</div></div>
+    <section id="activities" class="activity-section">
+        <h2>Weekly Activities</h2>
+        <div class="activity-grid">
+            <div class="activity-box">
+                <h3>📊 Monthly Vote</h3>
+                <p>이번 달 최고의 앨범에 투표하세요!</p>
+                <button>투표하러 가기</button>
+            </div>
+            <div class="activity-box">
+                <h3>📝 Guest Book</h3>
+                <p>음악에 대한 감상을 남겨주세요.</p>
+                <button>방명록 쓰기</button>
+            </div>
         </div>
-
-        <div id="ballad" class="category-content">
-            <h1 class="cat-title">BALLAD</h1>
-            <p class="cat-desc">마음을 울리는 감성적인 멜로디</p>
-            <div class="post-list"><div class="placeholder-post">작성된 글이 없습니다.</div></div>
-        </div>
-
-        <div id="trot" class="category-content">
-            <h1 class="cat-title">TROT</h1>
-            <p class="cat-desc">흥과 한이 어우러진 정통 가요</p>
-            <div class="post-list"><div class="placeholder-post">작성된 글이 없습니다.</div></div>
-        </div>
-
-        <div id="classic" class="category-content">
-            <h1 class="cat-title">CLASSIC</h1>
-            <p class="cat-desc">시간을 초월한 우아함과 깊이</p>
-            <div class="post-list"><div class="placeholder-post">작성된 글이 없습니다.</div></div>
-        </div>
-
-        <div id="jazz" class="category-content">
-            <h1 class="cat-title">JAZZ</h1>
-            <p class="cat-desc">자유로운 즉흥 연주와 스윙</p>
-            <div class="post-list"><div class="placeholder-post">작성된 글이 없습니다.</div></div>
-        </div>
-
-        <div id="pop" class="category-content">
-            <h1 class="cat-title">POP MUSIC</h1>
-            <p class="cat-desc">전 세계가 사랑하는 트렌디한 음악</p>
-            <div class="post-list"><div class="placeholder-post">작성된 글이 없습니다.</div></div>
-        </div>
-    </div>
+    </section>
 
     <script src="script.js"></script>
 </body>
