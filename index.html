@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Music Lounge</title>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+    <title>Music Lounge - 당신의 플레이리스트</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -18,7 +18,6 @@
     </nav>
 
     <header id="home" class="hero">
-        <div class="overlay"></div>
         <div class="hero-content">
             <h1>당신의 플레이리스트를<br>완성하세요</h1>
             <p>K-POP부터 클래식까지, 세상의 모든 음악을 만나다</p>
@@ -26,11 +25,11 @@
         </div>
         
         <div class="music-card-floating">
-            <div class="album-art">
-                <img src="https://images.unsplash.com/photo-1614613535308-eb5fbd3d2c17?auto=format&fit=crop&w=100&q=80" alt="앨범아트">
+            <div class="album-art-css">
+                <span class="music-icon">🔥</span>
             </div>
             <div class="info">
-                <span>🔥 지금 뜨는 음악</span>
+                <span>지금 뜨는 음악</span>
                 <strong>NewJeans - OMG</strong>
             </div>
         </div>
@@ -40,74 +39,65 @@
         <h2 class="section-title">장르별 음악 여행</h2>
         <p class="section-desc">원하는 스타일의 카드를 클릭하여 입장하세요</p>
         
-<div class="grid-container">
-    <div class="card" onclick="enterCategory('kpop')">
-        <img src="https://images.unsplash.com/photo-1619983081563-430f63602796?w=600" class="card-img" alt="케이팝">
-        <div class="card-content">
-            <h3>K-POP</h3>
-            <p>글로벌 트렌드의 중심</p>
-        </div>
-    </div>
-    
-    <div class="card" onclick="enterCategory('rnb')">
-        <img src="https://images.unsplash.com/photo-1493225255756-d9584f8606e9?w=600" class="card-img" alt="알앤비">
-        <div class="card-content">
-            <h3>R&B</h3>
-            <p>감성적인 리듬과 소울</p>
-        </div>
-    </div>
+        <div class="grid-container">
+            <div class="card kpop" onclick="enterCategory('kpop')">
+                <div class="card-visual">🎤</div>
+                <div class="card-content">
+                    <h3>K-POP</h3>
+                    <p>글로벌 트렌드의 중심</p>
+                </div>
+            </div>
+            
+            <div class="card rnb" onclick="enterCategory('rnb')">
+                <div class="card-visual">🍷</div>
+                <div class="card-content">
+                    <h3>R&B</h3>
+                    <p>감성적인 리듬과 소울</p>
+                </div>
+            </div>
 
-    <div class="card" onclick="enterCategory('hiphop')">
-        <img src="https://images.unsplash.com/photo-1596627685036-797743912626?w=600" class="card-img" alt="힙합">
-        <div class="card-content">
-            <h3>힙합 (Hip-hop)</h3>
-            <p>자유로운 비트와 라임</p>
-        </div>
-    </div>
+            <div class="card hiphop" onclick="enterCategory('hiphop')">
+                <div class="card-visual">🧢</div>
+                <div class="card-content">
+                    <h3>HIP-HOP</h3>
+                    <p>자유로운 비트와 라임</p>
+                </div>
+            </div>
 
-    <div class="card" onclick="enterCategory('ballad')">
-        <img src="https://images.unsplash.com/photo-1483032469466-b937c425697b?w=600" class="card-img" alt="발라드">
-        <div class="card-content">
-            <h3>발라드</h3>
-            <p>마음을 울리는 멜로디</p> 
-        </div>
-    </div>
+            <div class="card ballad" onclick="enterCategory('ballad')">
+                <div class="card-visual">🍂</div>
+                <div class="card-content">
+                    <h3>발라드</h3>
+                    <p>마음을 울리는 멜로디</p> 
+                </div>
+            </div>
 
-    <div class="card" onclick="enterCategory('trot')">
-        <img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=600" class="card-img" alt="트로트">
-        <div class="card-content">
-            <h3>트로트</h3>
-            <p>흥이 넘치는 우리 가락</p>
-        </div>
-    </div>
+            <div class="card trot" onclick="enterCategory('trot')">
+                <div class="card-visual">✨</div>
+                <div class="card-content">
+                    <h3>트로트</h3>
+                    <p>흥이 넘치는 우리 가락</p>
+                </div>
+            </div>
 
-    <div class="card" onclick="enterCategory('classic')">
-        <img src="https://images.unsplash.com/photo-1552422535-c4581dadc6f5?w=600" class="card-img" alt="클래식">
-        <div class="card-content">
-            <h3>클래식</h3>
-            <p>불멸의 명곡</p>
-        </div>
-    </div>
+            <div class="card classic" onclick="enterCategory('classic')">
+                <div class="card-visual">🎻</div>
+                <div class="card-content">
+                    <h3>클래식</h3>
+                    <p>불멸의 명곡</p>
+                </div>
+            </div>
 
-    <div class="card" onclick="enterCategory('jazz')">
-        <img src="https://images.unsplash.com/photo-1511192336575-5a79af67a629?w=600" class="card-img" alt="재즈">
-        <div class="card-content">
-            <h3>재즈 (Jazz)</h3>
-            <p>즉흥 연주의 매력</p>
-        </div>
-    </div>
+            <div class="card jazz" onclick="enterCategory('jazz')">
+                <div class="card-visual">🎷</div>
+                <div class="card-content">
+                    <h3>재즈</h3>
+                    <p>즉흥 연주의 매력</p>
+                </div>
+            </div>
 
-    <div class="card" onclick="enterCategory('pop')">
-        <img src="https://images.unsplash.com/photo-1504509546545-e000b4a62925?w=600" class="card-img" alt="팝">
-        <div class="card-content">
-            <h3>POP</h3>
-            <p>전 세계가 사랑하는 음악</p>
-        </div>
-    </div>
-</div>
-
-            <div class="card" onclick="enterCategory('pop')">
-                <img src="https://images.unsplash.com/photo-1514525253440-b393452e8d26?auto=format&fit=crop&w=600&q=80" class="card-img" alt="팝">
+            <div class="card pop" onclick="enterCategory('pop')">
+                <div class="card-visual">🎸</div>
                 <div class="card-content">
                     <h3>POP</h3>
                     <p>전 세계가 사랑하는 음악</p>
@@ -118,7 +108,6 @@
 
     <section id="activity" class="activity-section">
         <h2 class="section-title">함께 즐기는 음악</h2>
-        
         <div class="activity-container">
             <div class="act-box">
                 <div class="icon">🏆</div>
@@ -126,19 +115,12 @@
                 <p>가장 좋았던 곡에 투표해주세요.</p>
                 <button class="act-btn" onclick="voteMusic()">투표하기</button>
             </div>
-
-            <div class="act-box request-box">
+            <div class="act-box">
                 <div class="icon">🎧</div>
                 <h3>신청곡 게시판</h3>
                 <p>듣고 싶은 노래를 신청하세요.</p>
                 <button class="act-btn" onclick="addRequest()">신청하기</button>
-                
-                <div class="request-list-container">
-                    <ul id="request-list">
-                        </ul>
-                </div>
             </div>
-
             <div class="act-box">
                 <div class="icon">🧩</div>
                 <h3>음악 퀴즈</h3>
