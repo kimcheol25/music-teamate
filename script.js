@@ -1,25 +1,24 @@
 // 카테고리 입장 함수
 function enterCategory(genre) {
-    const genreName = genre.toUpperCase();
+    const genreName = genre.toLowerCase(); // 소문자로 통일
     
-    // 부드러운 페이지 전환 효과 시뮬레이션
+    // 페이지 전환 애니메이션 효과 (화면 흐려짐)
     document.body.style.opacity = '0';
     document.body.style.transition = 'opacity 0.5s ease';
 
     setTimeout(() => {
-        // 실제로는 여기서 각 장르 페이지로 이동(href)하거나 내용을 바꿉니다.
-        // 현재는 블로그 홈과 카테고리 진입 확인용 알림을 띄웁니다.
-        const confirmEnter = confirm(`'${genreName}' 카테고리로 이동합니다.\n(친구들이 여기에 내용을 채우면 됩니다!)`);
-        
-        // 다시 화면 보여주기
-        document.body.style.opacity = '1';
-        
-        if(confirmEnter) {
-            console.log(`Navigating to ${genreName} page...`);
-            // 나중에 실제 페이지가 생기면 아래 주석을 해제하세요.
-            // window.location.href = `${genre}.html`;
+        // [중요] 여기서 '발라드'일 경우와 아닌 경우를 나눕니다.
+        if (genreName === 'ballad') {
+            // 발라드(ballad)는 파일이 있으니까 이동!
+            window.location.href = 'ballad.html';
+        } else {
+            // 다른 장르는 아직 안 만들었으니 알림창 띄우기
+            alert(`'${genreName.toUpperCase()}' 페이지는 준비 중입니다!\n(친구들이 만들어야 해요!)`);
+            
+            // 다시 화면 보여주기 (이동을 안 했으니까)
+            document.body.style.opacity = '1';
         }
-    }, 500);
+    }, 500); // 0.5초 뒤에 실행
 }
 
 // 투표 기능

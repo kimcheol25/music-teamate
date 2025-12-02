@@ -71,9 +71,20 @@ body {
 .hero-content h1 {
     font-size: 3.5rem;
     margin-bottom: 20px;
+    
+    /* 1. 그라데이션 배경 설정 */
     background: linear-gradient(to right, #fff, #00f2ff);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    
+    /* 2. 배경을 글자 모양으로 자르기 (표준 + 웹킷 둘 다 작성) */
+    -webkit-background-clip: text; /* 구형 크롬, 사파리용 */
+    background-clip: text;         /* 표준 브라우저용 */
+    
+    /* 3. 글자 색상을 투명하게 해서 배경이 보이게 함 */
+    color: transparent;            /* 표준 */
+    -webkit-text-fill-color: transparent; /* 웹킷 강제 적용 */
+    
+    /* (옵션) 혹시라도 그라데이션이 안 먹을 때를 대비한 꽉 찬 레이아웃 */
+    display: inline-block; 
 }
 
 .btn-start {
