@@ -1,15 +1,19 @@
-/* 부드러운 스크롤 (필수 기능) */
+/* 기본 설정 및 폰트 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 html {
-    scroll-behavior: smooth;
+    scroll-behavior: smooth; /* 부드러운 스크롤 */
 }
 
 body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Noto Sans KR', sans-serif;
-    background-color: #050505;
+    font-family: 'Pretendard', sans-serif;
+    background-color: #121212; /* 다크 모드 배경 */
     color: #ffffff;
-    overflow-x: hidden;
+    line-height: 1.6;
 }
 
 /* 네비게이션 */
@@ -17,25 +21,24 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 50px;
-    background: rgba(0, 0, 0, 0.7);
-    backdrop-filter: blur(10px);
-    position: fixed;
-    width: 100%;
+    padding: 1rem 5%;
+    background: rgba(18, 18, 18, 0.95);
+    position: sticky;
+    top: 0;
     z-index: 1000;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
+    border-bottom: 1px solid #333;
 }
 
 .logo {
     font-size: 1.5rem;
-    font-weight: 700;
-    color: #00ff88;
+    font-weight: bold;
+    color: #00f2ff;
 }
 
 .nav-links {
     list-style: none;
     display: flex;
-    gap: 30px;
+    gap: 20px;
 }
 
 .nav-links a {
@@ -46,145 +49,215 @@ body {
 }
 
 .nav-links a:hover {
-    color: #00ff88;
+    color: #00f2ff;
 }
 
 /* 히어로 섹션 */
 .hero {
-    height: 100vh;
+    height: 80vh;
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
     position: relative;
-    /* 배경 이미지 */
-    background: url('https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
-    text-align: center;
-}
-
-.hero .overlay {
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(0, 0, 0, 0.6);
+    background: linear-gradient(135deg, #1e1e2f 0%, #0a0a0a 100%);
+    overflow: hidden;
 }
 
 .hero-content {
-    position: relative;
-    z-index: 1;
-    animation: fadeInUp 1s ease-out;
+    z-index: 10;
+    text-align: center;
 }
 
-.hero h1 { font-size: 4rem; margin-bottom: 20px; line-height: 1.2; }
-.hero p { font-size: 1.2rem; margin-bottom: 40px; color: #ddd; }
+.hero-content h1 {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    background: linear-gradient(to right, #fff, #00f2ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
 
 .btn-start {
-    padding: 15px 40px;
-    background: #00ff88;
+    display: inline-block;
+    padding: 12px 30px;
+    background: #00f2ff;
     color: #000;
     text-decoration: none;
     font-weight: bold;
-    border-radius: 50px;
-    transition: transform 0.3s, box-shadow 0.3s;
+    border-radius: 30px;
+    margin-top: 20px;
+    transition: transform 0.3s;
 }
 
 .btn-start:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 0 20px rgba(0, 255, 136, 0.5);
+    transform: scale(1.05);
 }
 
-/* 플로팅 카드 */
+/* 플로팅 뮤직 카드 (이미지 대신 CSS 디자인) */
 .music-card-floating {
     position: absolute;
-    bottom: 50px; right: 50px;
-    background: rgba(255,255,255,0.1);
-    backdrop-filter: blur(5px);
+    right: 10%;
+    bottom: 20%;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
     padding: 15px;
     border-radius: 15px;
-    display: flex; align-items: center; gap: 15px;
-    border: 1px solid rgba(255,255,255,0.2);
-    animation: float 3s infinite ease-in-out;
-    z-index: 1;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    animation: float 3s ease-in-out infinite;
+    border: 1px solid rgba(255,255,255,0.1);
 }
 
-.music-card-floating img { width: 50px; height: 50px; border-radius: 8px; }
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
 
-/* 장르 섹션 (그리드) */
+.album-art-css {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(45deg, #ff00cc, #333399);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+}
+
+/* 장르 섹션 */
 .genre-section {
-    padding: 100px 50px;
-    background-color: #0a0a0a;
+    padding: 80px 5%;
+    text-align: center;
 }
 
-.section-title { text-align: center; font-size: 2.5rem; margin-bottom: 10px; }
-.section-desc { text-align: center; color: #888; margin-bottom: 60px; }
+.section-title {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.section-desc {
+    color: #aaa;
+    margin-bottom: 50px;
+}
 
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 30px;
-    max-width: 1200px;
-    margin: 0 auto;
 }
 
+/* 카드 공통 스타일 */
 .card {
-    height: 350px;
+    background: #1f1f1f;
     border-radius: 20px;
     overflow: hidden;
-    position: relative;
     cursor: pointer;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    transition: transform 0.3s, box-shadow 0.3s;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
 }
 
-/* 이미지 비율 유지하며 꽉 채우기 (사진 안 깨지는 핵심 코드) */
-.card-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s ease;
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(0, 242, 255, 0.2);
 }
+
+.card-visual {
+    flex: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 4rem;
+    transition: font-size 0.3s;
+}
+
+.card:hover .card-visual {
+    font-size: 5rem;
+}
+
+/* 장르별 배경색 (절대 깨지지 않는 디자인) */
+.kpop .card-visual { background: linear-gradient(45deg, #FF61D2, #FE9090); }
+.rnb .card-visual { background: linear-gradient(45deg, #4facfe, #00f2fe); }
+.hiphop .card-visual { background: linear-gradient(45deg, #434343, #000000); }
+.ballad .card-visual { background: linear-gradient(45deg, #a18cd1, #fbc2eb); }
+.trot .card-visual { background: linear-gradient(45deg, #f6d365, #fda085); }
+.classic .card-visual { background: linear-gradient(45deg, #89f7fe, #66a6ff); }
+.jazz .card-visual { background: linear-gradient(45deg, #30cfd0, #330867); }
+.pop .card-visual { background: linear-gradient(45deg, #ff9a9e, #fecfef); }
 
 .card-content {
-    position: absolute; bottom: 0; left: 0; width: 100%;
-    padding: 30px 20px;
-    background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
-    box-sizing: border-box;
-    transition: padding-bottom 0.3s;
+    flex: 1;
+    padding: 20px;
+    background: #1f1f1f;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
-.card:hover .card-img { transform: scale(1.1); }
-.card:hover .card-content { padding-bottom: 40px; }
-.card h3 { margin: 0; font-size: 1.8rem; }
-.card p { margin: 5px 0 0; color: #ccc; font-size: 0.9rem; }
+.card-content h3 {
+    margin-bottom: 5px;
+    font-size: 1.2rem;
+}
 
-/* 활동 섹션 & 게시판 */
-.activity-section { padding: 100px 50px; background: #111; text-align: center; }
-.activity-container { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; margin-top: 50px; }
+.card-content p {
+    font-size: 0.9rem;
+    color: #888;
+}
+
+/* 활동 섹션 */
+.activity-section {
+    padding: 80px 5%;
+    background: #1a1a1a;
+}
+
+.activity-container {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
 .act-box {
-    background: #1e1e1e; padding: 40px 20px; border-radius: 20px;
-    width: 250px; border: 1px solid #333; transition: border-color 0.3s;
+    background: #2a2a2a;
+    padding: 30px;
+    border-radius: 15px;
+    flex: 1;
+    min-width: 250px;
+    text-align: center;
+    border: 1px solid #333;
 }
-.act-box:hover { border-color: #00ff88; }
-.act-box .icon { font-size: 3rem; margin-bottom: 20px; }
+
+.act-box .icon {
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+
 .act-btn {
-    margin-top: 20px; padding: 10px 25px; border: 1px solid #fff;
-    background: transparent; color: white; border-radius: 20px;
-    cursor: pointer; transition: all 0.3s;
+    margin-top: 15px;
+    padding: 10px 20px;
+    background: transparent;
+    border: 1px solid #00f2ff;
+    color: #00f2ff;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 0.3s;
 }
-.act-btn:hover { background: white; color: black; }
 
-/* 신청곡 리스트 스타일 */
-.request-box { width: 300px; }
-.request-list-container {
-    margin-top: 15px; height: 150px; overflow-y: auto;
-    background: rgba(0,0,0,0.3); border-radius: 10px; padding: 10px; text-align: left;
+.act-btn:hover {
+    background: #00f2ff;
+    color: #000;
 }
-#request-list { list-style: none; padding: 0; margin: 0; }
-#request-list li {
-    font-size: 0.9rem; padding: 5px 0; border-bottom: 1px solid rgba(255,255,255,0.1);
-    color: #ddd; display: flex; justify-content: space-between;
+
+.footer {
+    padding: 30px;
+    text-align: center;
+    background: #0a0a0a;
+    color: #555;
+    font-size: 0.8rem;
 }
-.request-list-container::-webkit-scrollbar { width: 6px; }
-.request-list-container::-webkit-scrollbar-thumb { background: #555; border-radius: 3px; }
-
-.footer { padding: 30px; text-align: center; background: black; color: #555; font-size: 0.8rem; }
-
-@keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-@keyframes float { 0% { transform: translateY(0px); } 50% { transform: translateY(-10px); } 100% { transform: translateY(0px); } }

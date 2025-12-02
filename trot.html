@@ -2,106 +2,57 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>트로트 음악 블로그</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Lounge - 트로트</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-
     <style>
-        body {
-            font-family: 'Pretendard', sans-serif;
-            background-color: #fffaf5;
-            margin: 0;
-            padding: 30px;
-            line-height: 1.7;
-        }
-
-        .container {
-            max-width: 720px;
-            margin: auto;
-            background: white;
-            padding: 40px;
-            border-radius: 14px;
-            box-shadow: 0 4px 14px rgba(0,0,0,0.1);
-        }
-
-        h1 {
-            font-size: 32px;
-            margin-bottom: 15px;
-            color: #d9480f;
-        }
-
-        h2 {
-            margin-top: 30px;
-            color: #a63a03;
-        }
-
-        .tag {
-            display: inline-block;
-            margin-top: 5px;
-            background-color: #ffe6d7;
-            padding: 6px 14px;
-            border-radius: 20px;
-            color: #b04100;
-            font-size: 14px;
-        }
-
-        a {
-            color: #d9480f;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        a:hover {
-            opacity: 0.7;
-        }
+        body { font-family: 'Pretendard', sans-serif; background-color: #fff0f5; color: #5c0d0d; }
+        .hero-trot { text-align: center; padding: 3rem 1rem; background: linear-gradient(135deg, #ffe6f0, #ffd6cc); }
+        .hero-trot h1 { font-size: 2.5rem; margin-bottom: 1rem; }
+        .hero-trot p { font-size: 1.2rem; margin-bottom: 2rem; }
+        .trot-info { display: grid; grid-template-columns: 1fr; gap: 2rem; max-width: 900px; margin: 0 auto; }
+        .trot-card { background-color: #fff5f5; border: 2px solid #ffcccc; padding: 1.5rem; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        .trot-card h3 { color: #b30000; margin-bottom: 0.5rem; }
+        .trot-card p { line-height: 1.6; }
+        .back-btn { display: inline-block; margin-top: 2rem; padding: 0.8rem 1.5rem; background-color: #ff6666; color: #fff; border-radius: 8px; text-decoration: none; font-weight: bold; }
+        .back-btn:hover { background-color: #cc0000; }
     </style>
 </head>
-
 <body>
 
-    <div class="container">
+    <header class="hero-trot">
+        <h1>🎵 트로트의 세계로 오신 것을 환영합니다 🎵</h1>
+        <p>흥겨운 리듬, 세대를 넘어 사랑받는 우리 노래</p>
+    </header>
 
-        <h1>트로트, 우리의 감성을 깨우는 음악</h1>
-        <span class="tag">#트로트 #흥겨움 #한국대중음악</span>
+    <section class="trot-info">
+        <div class="trot-card">
+            <h3>🌟 대표 아티스트</h3>
+            <p>남진, 장윤정, 송가인 등 세대를 아우르는 트로트 스타들이 있습니다. 각 시대를 대표하는 목소리와 무대 매너는 트로트만의 매력입니다.</p>
+        </div>
+        <div class="trot-card">
+            <h3>🎶 유명 노래</h3>
+            <p>"동반자", "합정역 5번 출구", "찐이야", "보릿고개" 등 세대별로 사랑받은 곡들이 많습니다. 모두 흥겹고 따라 부르기 좋은 멜로디가 특징이에요.</p>
+        </div>
+        <div class="trot-card">
+            <h3>🕰️ 세대별 트로트</h3>
+            <p>1970~80년대: 트로트 황금기, 향수를 자극하는 클래식한 곡들<br>
+               1990~2000년대: 감성적 발라드 트로트 혼합, 대중적 사랑<br>
+               2010~현재: 댄스 트로트, 트롯 아이돌 등장, 신세대 감각 반영</p>
+        </div>
+        <div class="trot-card">
+            <h3>🎵 특징과 분위기</h3>
+            <p>트로트는 리듬이 경쾌하고, ‘흥’과 ‘감성’이 동시에 느껴집니다. 박자감 있는 장단과 반복되는 후렴구가 귀에 남는 것이 특징이에요.</p>
+        </div>
+        <div class="trot-card">
+            <h3>💌 감성 글</h3>
+            <p>한잔 술과 함께 울려 퍼지는 트로트 한 곡, 세대와 마음을 이어주는 따뜻한 멜로디. 흥겨움 속에서도 삶의 애환을 담아내는 우리 음악, 그것이 바로 트로트입니다. 🎤✨</p>
+        </div>
+    </section>
 
-        <p>
-            트로트는 단순히 ‘옛 음악’이 아니라,  
-            세대를 넘어 마음을 움직이는 한국 고유의 대중음악이에요.  
-            반복적인 리듬과 구슬픈 창법, 그리고 누구나 따라 부르게 되는 멜로디 덕분에  
-            지금도 많은 사람들에게 사랑받고 있죠.
-        </p>
-
-        <h2>🎵 트로트 음악의 분위기</h2>
-        <p>
-            트로트는 흥겹고 리듬감이 있으면서도  
-            마음 한구석을 찡하게 건드리는 감성이 있어요.  
-            술 한 잔 기울이며 듣기에도 좋고,  
-            스트레스 받을 때 가볍게 흥을 올리기에도 좋아요.
-        </p>
-
-        <h2>✨ 트로트의 특징 3가지</h2>
-        <ul>
-            <li>반복되는 리듬과 쉬운 멜로디</li>
-            <li>울림 있는 창법과 독특한 음 꺾기</li>
-            <li>세대를 아우르는 공감과 흥</li>
-        </ul>
-
-        <h2>💡 이런 상황에 추천!</h2>
-        <p>
-            • 기분전환하고 싶을 때  
-            • 혼자 노래방에서 스트레스 풀고 싶을 때  
-            • 한국적인 감성이 당기고 싶을 때
-        </p>
-
-        <h2>🎧 추천 곡 & 아티스트</h2>
-        <p>
-            · 송가인 – <em>트로트가 나는 좋아요</em><br>
-            · 임영웅 – <em>별빛 같은 나의 사랑아</em><br>
-            · 장윤정 – <em>초혼</em>  
-        </p>
-
-        <p style="margin-top:40px;">
-            <a href="index.html">← 메인으로 돌아가기</a>
-        </p>
+    <div style="text-align:center;">
+        <a href="index.html" class="back-btn">🏠 메인으로 돌아가기</a>
     </div>
 
 </body>
