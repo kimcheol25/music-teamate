@@ -18,6 +18,9 @@ function filterGenres() {
     });
 }
 
+/* =========================================
+   2. 기분별 추천 기능 (Mood)
+   ========================================= */
 function recommendMood(mood) {
     let message = "";
     let genreClass = "";
@@ -50,6 +53,7 @@ function recommendMood(mood) {
         }
     });
 
+    // 3초 뒤 복구
     setTimeout(() => {
         cards.forEach(card => {
             card.style.display = "";
@@ -59,6 +63,9 @@ function recommendMood(mood) {
     }, 3000);
 }
 
+/* =========================================
+   3. BGM 플레이어 기능 (BGM Player)
+   ========================================= */
 let isPlaying = false;
 // Lofi Hip Hop 라디오 ID (원하는 유튜브 영상 ID로 교체 가능)
 const BGM_ID = "jfKfPfyJRdk"; 
@@ -92,9 +99,12 @@ function toggleBGM() {
    4. 기본 기능 (페이지 이동, 네비게이션, 알림)
    ========================================= */
 function enterCategory(genre) {
+    // 화면 페이드 아웃 효과
     document.body.style.opacity = '0';
     document.body.style.transition = 'opacity 0.5s ease';
+
     setTimeout(() => {
+        // 각 장르 파일로 이동
         window.location.href = `${genre}.html`;
     }, 500);
 }

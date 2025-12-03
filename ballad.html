@@ -4,244 +4,137 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Music Lounge - Ballad</title>
-    <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;700&family=Nanum+Myeongjo:wght@700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        /* 발라드 페이지 전용 스타일 */
+        /* 기본 스타일 초기화 */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
-            background-color: #0f0c15; /* 깊은 밤색 배경 */
+            font-family: 'Pretendard', sans-serif;
+            background-color: #121212;
+            color: #ffffff;
+            min-height: 100vh;
         }
+
+        /* 네비게이션바 (메인과 통일) */
+        .navbar {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 1rem 5%; background: rgba(18, 18, 18, 0.95);
+            position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid #333;
+        }
+        .logo { font-size: 1.5rem; font-weight: bold; color: #00f2ff; cursor: pointer; }
+        .nav-links { list-style: none; display: flex; gap: 20px; }
+        .nav-links a { text-decoration: none; color: white; transition: color 0.3s; }
+        .nav-links a:hover { color: #00f2ff; }
+
+        /* 헤더 섹션 */
+        .genre-header {
+            padding: 80px 5%; text-align: center;
+            background: linear-gradient(180deg, #2a1f2d 0%, #121212 100%);
+        }
+        .genre-title {
+            font-size: 3rem; margin-bottom: 15px;
+            background: linear-gradient(45deg, #a18cd1, #fbc2eb);
+            -webkit-background-clip: text; color: transparent; display: inline-block;
+        }
+        .genre-desc { color: #aaa; font-size: 1.1rem; }
+
+        /* 플레이리스트 섹션 */
+        .playlist-section { padding: 50px 10%; }
         
-        /* 헤더: 감성적인 보랏빛 밤하늘 */
-        .ballad-hero {
-            height: 60vh;
-            background: linear-gradient(180deg, #240b36 0%, #0f0c15 100%);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            position: relative;
-        }
-
-        .ballad-title {
-            font-family: 'Nanum Myeongjo', serif; /* 명조체로 감성 더하기 */
-            font-size: 4rem;
-            color: #e0c3fc;
-            margin-bottom: 20px;
-            text-shadow: 0 0 20px rgba(224, 195, 252, 0.3);
-            animation: fadeIn 2s ease;
-        }
-
-        .ballad-desc {
-            font-size: 1.2rem;
-            color: #b8b8b8;
-            max-width: 600px;
-            line-height: 1.8;
-            padding: 0 20px;
-            font-weight: 300;
-        }
-
-        /* 정보 그리드 */
-        .info-section {
-            padding: 50px 10%;
-        }
-
-        .info-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-bottom: 80px;
-        }
-
-        .info-card {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 30px;
-            border-radius: 15px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: 0.3s;
-        }
-
-        .info-card:hover {
-            background: rgba(255, 255, 255, 0.1);
-            transform: translateY(-5px);
-        }
-
-        .info-icon {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-            display: block;
-        }
-
-        .info-card h3 {
-            color: #d4a5ff;
-            margin-bottom: 10px;
-            font-size: 1.3rem;
-        }
-
-        /* 추천 아티스트 & 곡 (CD 플레이어 디자인) */
-        .playlist-section {
-            padding: 0 10% 100px;
-        }
-
+        /* CD 플레이어 스타일 카드 */
         .cd-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 40px;
-            justify-content: center;
+            display: flex; flex-wrap: wrap; gap: 40px; justify-content: center;
         }
-
         .music-item {
-            display: flex;
-            align-items: center;
-            background: #1a1a2e;
-            padding: 20px;
-            border-radius: 50px 15px 15px 50px;
-            width: 100%;
-            max-width: 500px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
-            transition: 0.3s;
+            display: flex; align-items: center; background: #1a1a1e;
+            padding: 20px; border-radius: 50px 15px 15px 50px;
+            width: 100%; max-width: 500px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3); transition: 0.3s;
         }
-
-        .music-item:hover {
-            transform: scale(1.02);
-            background: #232342;
-        }
+        .music-item:hover { transform: scale(1.02); background: #232342; }
 
         .cd-icon {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            /* 깨지지 않는 CD 디자인 */
+            width: 80px; height: 80px; border-radius: 50%;
             background: radial-gradient(circle, #000 15%, #333 16%, #111 20%, #555 100%);
-            margin-right: 20px;
-            border: 2px solid #333;
-            flex-shrink: 0;
-            animation: spin 10s linear infinite;
-            animation-play-state: paused;
+            margin-right: 20px; border: 2px solid #aaa; flex-shrink: 0;
+            animation: rotate 5s linear infinite; animation-play-state: paused;
         }
+        .music-item:hover .cd-icon { animation-play-state: running; }
+        
+        @keyframes rotate { 100% { transform: rotate(360deg); } }
 
-        .music-item:hover .cd-icon {
-            animation-play-state: running;
+        .music-info { display: flex; flex-direction: column; flex-grow: 1; }
+        .music-title { font-size: 1.1rem; font-weight: bold; color: #fff; margin-bottom: 5px; }
+        .music-artist { font-size: 0.9rem; color: #bbb; }
+        
+        .play-btn {
+            background: none; border: 2px solid #a18cd1; color: #a18cd1;
+            width: 40px; height: 40px; border-radius: 50%;
+            cursor: pointer; transition: 0.3s; margin-left: 15px;
+            display: flex; justify-content: center; align-items: center; font-size: 1.2rem;
         }
+        .play-btn:hover { background: #a18cd1; color: #000; }
 
-        @keyframes spin { 100% { transform: rotate(360deg); } }
-
-        .track-info h4 { color: #fff; font-size: 1.2rem; margin-bottom: 5px; }
-        .track-info p { color: #888; font-size: 0.9rem; }
-        .track-tag { 
-            display: inline-block; 
-            font-size: 0.8rem; 
-            padding: 2px 8px; 
-            border-radius: 10px; 
-            background: #3e3e3e; 
-            color: #ccc; 
-            margin-top: 5px;
-        }
-
-        /* 뒤로가기 버튼 */
         .back-btn {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            padding: 15px 30px;
-            background: #d4a5ff;
-            color: #0f0c15;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: bold;
-            box-shadow: 0 5px 15px rgba(212, 165, 255, 0.4);
-            z-index: 100;
+            display: block; width: 200px; margin: 50px auto; padding: 15px;
+            text-align: center; border: 1px solid #333; border-radius: 30px;
+            color: #888; text-decoration: none; transition: 0.3s;
         }
-
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .back-btn:hover { border-color: #fff; color: #fff; }
     </style>
 </head>
 <body>
-
     <nav class="navbar">
-        <div class="logo">Music Lounge</div>
+        <div class="logo" onclick="location.href='index.html'">Music Lounge</div>
         <ul class="nav-links">
             <li><a href="index.html">홈으로</a></li>
         </ul>
     </nav>
 
-    <header class="ballad-hero">
-        <h1 class="ballad-title">Ballad</h1>
-        <p class="ballad-desc">
-            "사랑, 이별, 그리고 그리움."<br>
-            마음 깊은 곳을 울리는 선율과 가사.<br>
-            당신의 지친 하루 끝에 위로가 되어줄 음악을 만나보세요.
-        </p>
+    <header class="genre-header">
+        <h1 class="genre-title">Ballad Collection</h1>
+        <p class="genre-desc">감성을 자극하는 최고의 발라드 플레이리스트</p>
     </header>
 
-    <section class="info-section">
-        <div class="info-grid">
-            <div class="info-card">
-                <span class="info-icon">🌫️</span>
-                <h3>분위기</h3>
-                <p>서정적이고 차분함, 애절함, 새벽 감성, 따뜻한 위로</p>
-            </div>
-            <div class="info-card">
-                <span class="info-icon">🎹</span>
-                <h3>음악적 특징</h3>
-                <p>피아노와 현악기 중심의 멜로디, 가사의 전달력을 중시하는 보컬, 기승전결이 뚜렷한 전개</p>
-            </div>
-            <div class="info-card">
-                <span class="info-icon">☕</span>
-                <h3>이럴 때 추천해요</h3>
-                <p>비 오는 날 창밖을 보며, 잠들기 전 새벽에, 이별 후 실컷 울고 싶을 때</p>
-            </div>
-        </div>
-    </section>
-
     <section class="playlist-section">
-        <h2 style="text-align:center; margin-bottom:50px; font-size:2rem;">Representative Playlist</h2>
-        
         <div class="cd-container">
             <div class="music-item">
-                <div class="cd-icon" style="border-color: #ffd700;"></div>
-                <div class="track-info">
-                    <h4>야생화</h4>
-                    <p>박효신 (Park Hyo Shin)</p>
-                    <span class="track-tag">#폭발적고음</span> <span class="track-tag">#인생곡</span>
+                <div class="cd-icon"></div>
+                <div class="music-info">
+                    <span class="music-title">사랑은 늘 도망가</span>
+                    <span class="music-artist">임영웅</span>
                 </div>
+                <a href="https://www.youtube.com/results?search_query=사랑은늘도망가+임영웅" target="_blank" class="play-btn">▶</a>
             </div>
 
             <div class="music-item">
-                <div class="cd-icon" style="border-color: #ffb6c1;"></div>
-                <div class="track-info">
-                    <h4>밤편지</h4>
-                    <p>아이유 (IU)</p>
-                    <span class="track-tag">#잔잔함</span> <span class="track-tag">#새벽감성</span>
+                <div class="cd-icon"></div>
+                <div class="music-info">
+                    <span class="music-title">밤편지</span>
+                    <span class="music-artist">아이유 (IU)</span>
                 </div>
+                <a href="https://www.youtube.com/results?search_query=밤편지+아이유" target="_blank" class="play-btn">▶</a>
             </div>
 
             <div class="music-item">
-                <div class="cd-icon" style="border-color: #87ceeb;"></div>
-                <div class="track-info">
-                    <h4>너를 만나</h4>
-                    <p>폴킴 (Paul Kim)</p>
-                    <span class="track-tag">#축가</span> <span class="track-tag">#달달함</span>
+                <div class="cd-icon"></div>
+                <div class="music-info">
+                    <span class="music-title">헤어지자 말해요</span>
+                    <span class="music-artist">박재정</span>
                 </div>
+                <a href="https://www.youtube.com/results?search_query=헤어지자말해요+박재정" target="_blank" class="play-btn">▶</a>
             </div>
-
              <div class="music-item">
-                <div class="cd-icon" style="border-color: #c0c0c0;"></div>
-                <div class="track-info">
-                    <h4>좋니</h4>
-                    <p>윤종신</p>
-                    <span class="track-tag">#이별</span> <span class="track-tag">#노래방필수</span>
+                <div class="cd-icon"></div>
+                <div class="music-info">
+                    <span class="music-title">첫 눈</span>
+                    <span class="music-artist">EXO</span>
                 </div>
+                <a href="https://www.youtube.com/results?search_query=첫눈+EXO" target="_blank" class="play-btn">▶</a>
             </div>
         </div>
+        
+        <a href="index.html" class="back-btn">← 메인으로 돌아가기</a>
     </section>
-
-    <a href="index.html" class="back-btn">⬅ 메인으로 돌아가기</a>
-
-    <footer class="footer">
-        <p>&copy; 2025 Music Lounge Project. Ballad Page.</p>
-    </footer>
-
 </body>
 </html>

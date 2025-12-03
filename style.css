@@ -71,11 +71,18 @@ body {
 .hero-content h1 {
     font-size: 3.5rem;
     margin-bottom: 20px;
+    
+    /* 1. 배경 설정 (필수) */
     background: linear-gradient(to right, #fff, #00f2ff);
+    
+    /* 2. 표준 속성: 배경을 글자 모양으로 자르기 */
     background-clip: text;
     -webkit-background-clip: text;
+    
+    /* 3. 글자 색상을 투명하게 만들어 배경이 보이게 하기 */
     color: transparent;
     -webkit-text-fill-color: transparent;
+    
     display: inline-block; 
 }
 
