@@ -390,3 +390,48 @@ body {
     transform: scale(1.2);
     color: #fff;
 }
+/* --- 세부 장르 페이지용 추가 스타일 --- */
+
+/* 설명 박스 디자인 */
+.detail-box {
+    background: #2a2a2a;
+    padding: 30px;
+    border-radius: 15px;
+    margin-bottom: 30px;
+    border-left: 5px solid #00f2ff; /* 포인트 컬러 */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.detail-box h3 {
+    margin-bottom: 15px;
+    color: #00f2ff;
+    font-size: 1.3rem;
+}
+
+.detail-box p, .detail-box li {
+    color: #ddd;
+    line-height: 1.8;
+}
+
+.detail-box ul {
+    list-style-position: inside;
+    padding-left: 10px;
+}
+
+/* 유튜브 버튼 디자인 */
+.youtube-btn {
+    display: inline-block;
+    background: #ff0000;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    margin-top: 15px;
+    transition: transform 0.2s;
+}
+
+.youtube-btn:hover {
+    transform: scale(1.05);
+    background: #cc0000;
+}
