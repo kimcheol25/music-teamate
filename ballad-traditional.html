@@ -9,16 +9,21 @@
 </head>
 <body>
     <nav class="navbar">
-        <div class="logo">Music Lounge</div>
+        <div class="logo" onclick="location.href='index.html'">Music Lounge</div>
         <ul class="nav-links">
             <li><a href="index.html">홈</a></li>
             <li><a href="ballad.html">발라드 메인</a></li>
         </ul>
     </nav>
 
-    <section class="genre-section">
-        <h2 class="section-title">🎤 정통 발라드 (Traditional Ballad)</h2>
+    <header class="genre-header-bg" style="background-image: url('https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=1470&q=80');">
+        <div class="genre-header-content fade-in">
+            <h1>정통 발라드<br>(Traditional Ballad)</h1>
+            <p>폭발적인 가창력과 애절한 감성의 정점</p>
+        </div>
+    </header>
 
+    <section class="genre-section fade-in" style="animation-delay: 0.3s;">
         <div class="detail-box">
             <h3>1. 장르 설명 & 특징</h3>
             <p>
@@ -47,12 +52,36 @@
         </div>
 
         <div class="detail-box">
-            <h3>4. 대표 명곡 (들어보기)</h3>
-            <ul class="song-list">
-                <li>박효신 - "야생화"</li>
-                <li>성시경 - "거리에서"</li>
-                <li>임영웅 - "사랑은 늘 도망가"</li>
-                <li>윤종신 - "좋니"</li>
+            <h3>4. 대표 명곡 (앨범 커버)</h3>
+            <ul class="album-list">
+                <li class="album-item" onclick="window.open('https://www.youtube.com/results?search_query=박효신+야생화')">
+                    <img src="https://image.bugsm.co.kr/album/images/500/4209/420928.jpg" alt="야생화 앨범 커버" class="album-cover">
+                    <div class="song-info-text">
+                        <strong>야생화</strong>
+                        <span>박효신</span>
+                    </div>
+                </li>
+                <li class="album-item" onclick="window.open('https://www.youtube.com/results?search_query=성시경+거리에서')">
+                    <img src="https://image.bugsm.co.kr/album/images/500/20010/2001036.jpg" alt="거리에서 앨범 커버" class="album-cover">
+                    <div class="song-info-text">
+                        <strong>거리에서</strong>
+                        <span>성시경</span>
+                    </div>
+                </li>
+                <li class="album-item" onclick="window.open('https://www.youtube.com/results?search_query=임영웅+사랑은늘도망가')">
+                    <img src="https://image.bugsm.co.kr/album/images/500/40661/4066142.jpg" alt="사랑은 늘 도망가 앨범 커버" class="album-cover">
+                    <div class="song-info-text">
+                        <strong>사랑은 늘 도망가</strong>
+                        <span>임영웅</span>
+                    </div>
+                </li>
+                <li class="album-item" onclick="window.open('https://www.youtube.com/results?search_query=윤종신+좋니')">
+                    <img src="https://image.bugsm.co.kr/album/images/500/20104/2010433.jpg" alt="좋니 앨범 커버" class="album-cover">
+                    <div class="song-info-text">
+                        <strong>좋니</strong>
+                        <span>윤종신</span>
+                    </div>
+                </li>
             </ul>
             <br>
             <a href="https://www.youtube.com/results?search_query=정통+이별발라드+모음" target="_blank" class="youtube-btn">
