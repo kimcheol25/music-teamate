@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CLASSICAL | Music Lounge</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">Music Lounge</div>
+        <ul class="nav-links">
+            <li><a href="index.html#home">홈</a></li>
+            <li><a href="index.html#genres">장르 탐험</a></li>
+            <li><a href="index.html#activity">커뮤니티</a></li>
+        </ul>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content">
+            <h1>CLASSICAL WORLD</h1>
+            <p>세월을 초월하는 아름다운 명곡의 세계</p>
+        </div>
+    </header>
+
+    <section class="genre-section">
+        <h2 class="section-title">클래식 서브 장르</h2>
+        <p class="section-desc">원하는 스타일을 선택해서 깊이 있는 클래식을 경험하세요.</p>
+
+        <div class="grid-container">
+            <!-- 바로크 -->
+            <div class="card classic" onclick="location.href='classic-baroque.html'">
+                <div class="card-visual">🎻</div>
+                <div class="card-content">
+                    <h3>바로크</h3>
+                    <p>화려한 장식과 균형 잡힌 조화의 음악</p>
+                </div>
+            </div>
+
+            <!-- 고전파 -->
+            <div class="card classic" onclick="location.href='classic-classical.html'">
+                <div class="card-visual">🎼</div>
+                <div class="card-content">
+                    <h3>고전파</h3>
+                    <p>모차르트, 베토벤 시대의 정형화된 구조와 우아함</p>
+                </div>
+            </div>
+
+            <!-- 낭만파 -->
+            <div class="card classic" onclick="location.href='classic-romantic.html'">
+                <div class="card-visual">🎹</div>
+                <div class="card-content">
+                    <h3>낭만파</h3>
+                    <p>감성과 표현력이 풍부한 드라마틱한 음악</p>
+                </div>
+            </div>
+
+            <!-- 현대/근현대 -->
+            <div class="card classic" onclick="location.href='classic-modern.html'">
+                <div class="card-visual">🎶</div>
+                <div class="card-content">
+                    <h3>현대/근현대</h3>
+                    <p>20세기 이후 실험적이고 다양한 현대 클래식</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
