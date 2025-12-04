@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>발라드 컬렉션 | Music Lounge</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">Music Lounge</div>
+        <ul class="nav-links">
+            <li><a href="index.html">홈</a></li>
+            <li><a href="#genres">다른 장르</a></li>
+        </ul>
+    </nav>
+
+    <header class="hero" style="height: 50vh; background: linear-gradient(135deg, #2c3e50 0%, #000000 100%);">
+        <div class="hero-content">
+            <h1>Ballad Collection</h1>
+            <p>당신의 감성을 채워줄 세 가지 스타일</p>
+        </div>
+    </header>
+
+    <section class="genre-section">
+        <h2 class="section-title">스타일 선택</h2>
+        <div class="grid-container">
+            <div class="card" onclick="location.href='ballad-traditional.html'">
+                <div class="card-visual" style="background: linear-gradient(45deg, #8E2DE2, #4A00E0);">🎤</div>
+                <div class="card-content">
+                    <h3>정통 발라드</h3>
+                    <p>폭발적인 고음과 애절한 감성</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="location.href='ballad-rock.html'">
+                <div class="card-visual" style="background: linear-gradient(45deg, #cb2d3e, #ef473a);">🎸</div>
+                <div class="card-content">
+                    <h3>락 발라드</h3>
+                    <p>밴드 사운드와 거친 매력</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="location.href='ballad-indie.html'">
+                <div class="card-visual" style="background: linear-gradient(45deg, #56ab2f, #a8e063);">🌿</div>
+                <div class="card-content">
+                    <h3>인디/감성</h3>
+                    <p>잔잔한 위로와 어쿠스틱</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2025 Music Lounge Project. All rights reserved.</p>
+    </footer>
+</body>
+</html>

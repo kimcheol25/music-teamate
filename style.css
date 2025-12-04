@@ -1,4 +1,6 @@
-/* 기본 설정 및 폰트 */
+/* =========================================
+   1. 기본 설정 및 네비게이션
+   ========================================= */
 * {
     margin: 0;
     padding: 0;
@@ -33,6 +35,7 @@ body {
     font-size: 1.5rem;
     font-weight: bold;
     color: #00f2ff;
+    cursor: pointer;
 }
 
 .nav-links {
@@ -52,7 +55,9 @@ body {
     color: #00f2ff;
 }
 
-/* 히어로 섹션 */
+/* =========================================
+   2. 히어로 섹션 (메인 배너)
+   ========================================= */
 .hero {
     height: 80vh;
     display: flex;
@@ -71,9 +76,14 @@ body {
 .hero-content h1 {
     font-size: 3.5rem;
     margin-bottom: 20px;
+    
+    /* 그라데이션 텍스트 효과 */
     background: linear-gradient(to right, #fff, #00f2ff);
+    background-clip: text;
     -webkit-background-clip: text;
+    color: transparent;
     -webkit-text-fill-color: transparent;
+    display: inline-block; 
 }
 
 .btn-start {
@@ -92,7 +102,7 @@ body {
     transform: scale(1.05);
 }
 
-/* 플로팅 뮤직 카드 (이미지 대신 CSS 디자인) */
+/* 플로팅 뮤직 카드 */
 .music-card-floating {
     position: absolute;
     right: 10%;
@@ -129,7 +139,9 @@ body {
     flex-direction: column;
 }
 
-/* 장르 섹션 */
+/* =========================================
+   3. 장르, 검색, 무드 추천 섹션
+   ========================================= */
 .genre-section {
     padding: 80px 5%;
     text-align: center;
@@ -142,16 +154,70 @@ body {
 
 .section-desc {
     color: #aaa;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
 }
 
+/* 검색창 스타일 */
+.search-container {
+    margin-bottom: 20px;
+    position: relative;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#searchInput {
+    width: 100%;
+    padding: 12px 40px 12px 20px;
+    border-radius: 25px;
+    border: 1px solid #444;
+    background: #2a2a2a;
+    color: white;
+    font-size: 1rem;
+    outline: none;
+}
+
+.search-icon {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #888;
+}
+
+/* 기분별 추천 버튼 */
+.mood-container {
+    margin-bottom: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.mood-btn {
+    padding: 8px 16px;
+    border-radius: 20px;
+    border: 1px solid #444;
+    background: #1f1f1f;
+    color: #fff;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.mood-btn:hover {
+    background: #00f2ff;
+    color: #000;
+    border-color: #00f2ff;
+}
+
+/* 카드 그리드 및 스타일 */
 .grid-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 30px;
 }
 
-/* 카드 공통 스타일 */
 .card {
     background: #1f1f1f;
     border-radius: 20px;
@@ -181,7 +247,7 @@ body {
     font-size: 5rem;
 }
 
-/* 장르별 배경색 (절대 깨지지 않는 디자인) */
+/* 장르별 배경색 */
 .kpop .card-visual { background: linear-gradient(45deg, #FF61D2, #FE9090); }
 .rnb .card-visual { background: linear-gradient(45deg, #4facfe, #00f2fe); }
 .hiphop .card-visual { background: linear-gradient(45deg, #434343, #000000); }
@@ -210,7 +276,9 @@ body {
     color: #888;
 }
 
-/* 활동 섹션 */
+/* =========================================
+   4. 활동 섹션 및 푸터
+   ========================================= */
 .activity-section {
     padding: 80px 5%;
     background: #1a1a1a;
@@ -260,4 +328,522 @@ body {
     background: #0a0a0a;
     color: #555;
     font-size: 0.8rem;
+}
+
+/* =========================================
+   5. 플로팅 BGM 플레이어 스타일
+   ========================================= */
+.floating-player {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    padding: 10px 20px;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+    z-index: 9999;
+}
+
+.cd-disk {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(45deg, #333, #000);
+    border-radius: 50%;
+    position: relative;
+    border: 2px solid #555;
+    animation: spin 3s linear infinite;
+    animation-play-state: paused; 
+}
+
+.cd-inner {
+    width: 12px;
+    height: 12px;
+    background: #00f2ff;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 2px solid #fff;
+}
+
+@keyframes spin {
+    100% { transform: rotate(360deg); }
+}
+
+.music-info-text {
+    font-size: 0.9rem;
+    color: #fff;
+    font-weight: bold;
+    min-width: 80px;
+}
+
+.play-toggle-btn {
+    background: none;
+    border: none;
+    color: #00f2ff;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.play-toggle-btn:hover {
+    transform: scale(1.2);
+    color: #fff;
+}
+
+/* =========================================
+   6. 상세 페이지 공통 스타일 (박스, 버튼, 배경)
+   ========================================= */
+
+/* 설명 박스 디자인 */
+.detail-box {
+    background: #2a2a2a;
+    padding: 30px;
+    border-radius: 15px;
+    margin-bottom: 30px;
+    border-left: 5px solid #00f2ff; /* 포인트 컬러 */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.detail-box h3 {
+    margin-bottom: 15px;
+    color: #00f2ff;
+    font-size: 1.3rem;
+}
+
+.detail-box p, .detail-box li {
+    color: #ddd;
+    line-height: 1.8;
+}
+
+.detail-box ul {
+    list-style-position: inside;
+    padding-left: 10px;
+}
+
+/* 유튜브 버튼 */
+.youtube-btn {
+    display: inline-block;
+    background: #ff0000;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    margin-top: 15px;
+    transition: transform 0.2s;
+}
+
+.youtube-btn:hover {
+    transform: scale(1.05);
+    background: #cc0000;
+}
+
+/* 상세 헤더 배경 이미지 */
+.genre-header-bg {
+    height: 50vh;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.genre-header-bg::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.genre-header-content {
+    position: relative;
+    z-index: 1;
+}
+
+.genre-header-content h1 {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+}
+
+.genre-header-content p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+/* 앨범 커버 리스트 */
+.album-list {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 25px;
+    margin-top: 25px;
+}
+
+.album-item {
+    text-align: center;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.album-item:hover {
+    transform: translateY(-10px);
+}
+
+.album-cover {
+    width: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+    margin-bottom: 15px;
+}
+
+.song-info-text strong {
+    display: block;
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+    color: #fff;
+}
+
+.song-info-text span {
+    color: #aaa;
+    font-size: 0.9rem;
+}
+
+/* 페이드 인 애니메이션 */
+.fade-in {
+    animation: fadeIn 1s ease-in-out forwards;
+    opacity: 0;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* =========================================
+   7. 힙합 서브 장르용 블로그 스타일 (추가됨)
+   ========================================= */
+
+.blog-layout {
+  max-width: 1100px;
+  margin: 90px auto 60px;
+  padding: 0 16px;
+  color: #f5f5f5;
+}
+
+.blog-header {
+  margin-bottom: 32px;
+}
+
+.breadcrumb {
+  font-size: 13px;
+  color: #9ca3af;
+  margin-bottom: 12px;
+}
+
+.breadcrumb a {
+  color: #9ca3af;
+  text-decoration: none;
+}
+
+.breadcrumb a:hover {
+  text-decoration: underline;
+}
+
+.blog-title-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  align-items: center;
+}
+
+.blog-title-row h1 {
+  font-size: 30px;
+  margin: 10px 0 8px;
+}
+
+.blog-subtitle {
+  font-size: 15px;
+  color: #d1d5db;
+  margin-bottom: 8px;
+}
+
+.blog-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  font-size: 13px;
+  color: #9ca3af;
+}
+
+.blog-hero-emoji span {
+  display: inline-flex;
+  width: 80px;
+  height: 80px;
+  border-radius: 24px;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+  background: linear-gradient(135deg, #f97316, #facc15);
+}
+
+/* 태그 스타일 */
+.tag-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 11px;
+  margin-right: 6px;
+  margin-bottom: 4px;
+  background: rgba(148, 163, 184, 0.2);
+  color: #e5e7eb;
+}
+
+.tag-hiphop {
+  background: rgba(59, 130, 246, 0.2);
+  color: #bfdbfe;
+}
+
+.tag-oldschool {
+  background: rgba(251, 191, 36, 0.18);
+  color: #fee2b3;
+}
+
+/* 블로그 본문 + 사이드바 레이아웃 */
+.blog-body {
+  display: grid;
+  grid-template-columns: minmax(0, 2.1fr) minmax(260px, 1fr);
+  gap: 28px;
+}
+
+.blog-content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.blog-block {
+  background: #111827;
+  border-radius: 18px;
+  padding: 20px 22px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(55, 65, 81, 0.9);
+}
+
+.blog-block h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.blog-block p {
+  font-size: 14px;
+  line-height: 1.7;
+  color: #e5e7eb;
+}
+
+/* 체크 리스트 */
+.check-list {
+  list-style: none;
+  padding-left: 0;
+  font-size: 14px;
+}
+
+.check-list li {
+  position: relative;
+  padding-left: 20px;
+  margin-bottom: 6px;
+}
+
+.check-list li::before {
+  content: "✔";
+  position: absolute;
+  left: 0;
+  top: 2px;
+  font-size: 12px;
+  color: #60a5fa;
+}
+
+/* 카드 그리드 (블로그용) */
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 14px;
+  margin-top: 10px;
+}
+
+.info-card {
+  background: #020617;
+  border-radius: 14px;
+  padding: 14px;
+  border: 1px solid rgba(55, 65, 81, 0.8);
+}
+
+.info-card h3 {
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+
+.info-card p {
+  font-size: 13px;
+  color: #cbd5f5;
+}
+
+/* 아티스트 리스트 */
+.artist-list {
+  list-style: none;
+  padding-left: 0;
+  font-size: 14px;
+}
+
+.artist-list li {
+  margin-bottom: 10px;
+}
+
+.artist-name {
+  display: block;
+  font-weight: 700;
+}
+
+.artist-desc {
+  font-size: 13px;
+  color: #d1d5db;
+}
+
+/* 추천 곡 테이블 */
+.song-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.song-table thead {
+  background: rgba(31, 41, 55, 0.9);
+}
+
+.song-table th,
+.song-table td {
+  padding: 10px 12px;
+  text-align: left;
+}
+
+.song-table tbody tr:nth-child(even) {
+  background: rgba(17, 24, 39, 0.9);
+}
+
+.song-table tbody tr:nth-child(odd) {
+  background: rgba(15, 23, 42, 0.9);
+}
+
+.song-table th {
+  font-weight: 600;
+  color: #e5e7eb;
+}
+
+.song-table td {
+  color: #e5e7eb;
+}
+
+.song-cover {
+  width: 52px;
+  height: 52px;
+  border-radius: 8px;
+  object-fit: cover;
+  display: block;
+}
+
+.song-table td:first-child {
+  width: 60px;
+}
+
+/* 사이드바 */
+.blog-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.side-card {
+  background: #020617;
+  border-radius: 16px;
+  padding: 16px 18px;
+  border: 1px solid rgba(55, 65, 81, 0.9);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+}
+
+.side-card h3 {
+  font-size: 15px;
+  margin-bottom: 10px;
+}
+
+.side-list {
+  list-style: none;
+  padding-left: 0;
+  font-size: 13px;
+}
+
+.side-list li {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 6px;
+  color: #d1d5db;
+}
+
+.side-list span {
+  color: #9ca3af;
+}
+
+.chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.link-list {
+  list-style: none;
+  padding-left: 0;
+  font-size: 13px;
+}
+
+.link-list a {
+  color: #93c5fd;
+  text-decoration: none;
+}
+
+.link-list a:hover {
+  text-decoration: underline;
+}
+
+/* 반응형 */
+@media (max-width: 900px) {
+  .blog-body {
+    grid-template-columns: 1fr;
+  }
+
+  .blog-title-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .blog-hero-emoji span {
+    width: 64px;
+    height: 64px;
+    font-size: 32px;
+  }
 }

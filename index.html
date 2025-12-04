@@ -37,8 +37,21 @@
 
     <section id="genres" class="genre-section">
         <h2 class="section-title">장르별 음악 여행</h2>
-        <p class="section-desc">원하는 스타일의 카드를 클릭하여 입장하세요</p>
+        <p class="section-desc">원하는 스타일을 검색하거나 기분에 맞춰 골라보세요</p>
         
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="장르 검색 (예: 힙합, 발라드)" onkeyup="filterGenres()">
+            <span class="search-icon">🔍</span>
+        </div>
+
+        <div class="mood-container">
+            <span>오늘의 기분은? 👉 </span>
+            <button class="mood-btn" onclick="recommendMood('happy')">😆 신남</button>
+            <button class="mood-btn" onclick="recommendMood('sad')">💧 우울</button>
+            <button class="mood-btn" onclick="recommendMood('calm')">🌿 차분</button>
+            <button class="mood-btn" onclick="recommendMood('party')">😎 파티</button>
+        </div>
+
         <div class="grid-container">
             <div class="card kpop" onclick="enterCategory('kpop')">
                 <div class="card-visual">🎤</div>
@@ -133,6 +146,17 @@
     <footer class="footer">
         <p>&copy; 2025 Music Lounge Project. All rights reserved.</p>
     </footer>
+
+    <div class="floating-player">
+        <div class="cd-disk" id="cdDisk">
+            <div class="cd-inner"></div>
+        </div>
+        <div class="player-controls">
+            <span class="music-info-text">Music Off</span>
+            <button onclick="toggleBGM()" class="play-toggle-btn" id="playBtn">▶</button>
+        </div>
+        <iframe id="bgmFrame" width="0" height="0" src="" frameborder="0" allow="autoplay"></iframe>
+    </div>
 
     <script src="script.js"></script>
 </body>
