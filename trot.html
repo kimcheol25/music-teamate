@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TROT | Music Lounge</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- 네비게이션 -->
+    <nav class="navbar">
+        <div class="logo">Music Lounge</div>
+        <ul class="nav-links">
+            <li><a href="index.html#home">홈</a></li>
+            <li><a href="index.html#genres">장르 탐험</a></li>
+            <li><a href="index.html#activity">커뮤니티</a></li>
+        </ul>
+    </nav>
+
+    <!-- 트로트 메인 헤더 -->
+    <header class="hero">
+        <div class="hero-content">
+            <h1>TROT WORLD</h1>
+            <p>흥과 감성이 살아 숨 쉬는 트로트의 세계</p>
+        </div>
+    </header>
+
+    <!-- 트로트 서브 장르 카드 목록 -->
+    <section class="genre-section">
+        <h2 class="section-title">트로트 서브 장르</h2>
+        <p class="section-desc">궁금한 스타일을 선택해서 더 깊게 들어가 보세요.</p>
+
+        <div class="grid-container">
+            <!-- 신세대 트로트 -->
+            <div class="card trot" onclick="location.href='trot-newgen.html'">
+                <div class="card-visual">✨</div>
+                <div class="card-content">
+                    <h3>신세대 트로트</h3>
+                    <p>젊은 감각과 현대적 사운드</p>
+                </div>
+            </div>
+
+            <!-- 감성 트로트 -->
+            <div class="card trot" onclick="location.href='trot-emotional.html'">
+                <div class="card-visual">💧</div>
+                <div class="card-content">
+                    <h3>감성 트로트</h3>
+                    <p>마음을 울리는 서정적 멜로디</p>
+                </div>
+            </div>
+
+            <!-- 흥겨운 트로트 -->
+            <div class="card trot" onclick="location.href='trot-party.html'">
+                <div class="card-visual">🎉</div>
+                <div class="card-content">
+                    <h3>흥겨운 트로트</h3>
+                    <p>신나는 리듬으로 흥을 돋우는 곡</p>
+                </div>
+            </div>
+
+            <!-- 전통 트로트 -->
+            <div class="card trot" onclick="location.href='trot-classic.html'">
+                <div class="card-visual">🎵</div>
+                <div class="card-content">
+                    <h3>전통 트로트</h3>
+                    <p>오래된 전통과 클래식 감성</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2025 Music Lounge Project. All rights reserved.</p>
+    </footer>
+</body>
+</html>
