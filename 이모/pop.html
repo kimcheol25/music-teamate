@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>POP | Music Lounge</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- 네비게이션 -->
+  <nav class="navbar">
+    <div class="logo">Music Lounge</div>
+    <ul class="nav-links">
+      <li><a href="index.html#home">홈</a></li>
+      <li><a href="index.html#genres">장르 탐험</a></li>
+      <li><a href="RNB.html">R&B</a></li>
+      <li><a href="hiphop.html">힙합</a></li>
+    </ul>
+  </nav>
+
+  <!-- POP 메인 헤더 -->
+  <header class="hero">
+    <div class="hero-content">
+      <h1>POP WORLD</h1>
+      <p>전 세계 대중음악의 중심, 팝의 다양한 얼굴을 한 번에</p>
+    </div>
+  </header>
+
+  <!-- 팝 서브 장르 카드 목록 -->
+  <section class="genre-section">
+    <h2 class="section-title">팝 서브 장르</h2>
+    <p class="section-desc">느낌별로 골라 듣는 POP, 마음에 드는 무드를 선택해 보세요.</p>
+
+    <div class="grid-container">
+      <!-- 클래식 / 올드 팝 -->
+      <div class="card hiphop" onclick="location.href='pop-classic.html'">
+        <div class="card-visual">📼</div>
+        <div class="card-content">
+          <h3>클래식 / 올드 팝</h3>
+          <p>70~90년대 추억의 팝송, 세대를 넘어 사랑받는 명곡들</p>
+        </div>
+      </div>
+
+      <!-- 댄스 팝 -->
+      <div class="card hiphop" onclick="location.href='pop-dance.html'">
+        <div class="card-visual">💃</div>
+        <div class="card-content">
+          <h3>댄스 팝</h3>
+          <p>신나는 비트와 훅으로 몸이 먼저 반응하는 파티용 팝</p>
+        </div>
+      </div>
+
+      <!-- 팝 록 -->
+      <div class="card hiphop" onclick="location.href='pop-rock.html'">
+        <div class="card-visual">🎸</div>
+        <div class="card-content">
+          <h3>팝 록</h3>
+          <p>록의 에너지와 팝의 멜로디가 섞인 밴드 중심 사운드</p>
+        </div>
+      </div>
+
+      <!-- 인디 팝 -->
+      <div class="card hiphop" onclick="location.href='pop-indie.html'">
+        <div class="card-visual">🌙</div>
+        <div class="card-content">
+          <h3>인디 팝</h3>
+          <p>보석 같은 감성, 독특한 색깔을 가진 아티스트들의 팝</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>&copy; 2025 Music Lounge Project. All rights reserved.</p>
+  </footer>
+</body>
+</html>
