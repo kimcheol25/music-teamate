@@ -1,6 +1,3 @@
-/* =========================================
-   1. 검색 기능 (Search)
-   ========================================= */
 function filterGenres() {
     const input = document.getElementById('searchInput');
     const filter = input.value.toUpperCase(); 
@@ -18,9 +15,6 @@ function filterGenres() {
     });
 }
 
-/* =========================================
-   2. 기분별 추천 기능 (Mood)
-   ========================================= */
 function recommendMood(mood) {
     let message = "";
     let genreClass = "";
@@ -53,7 +47,6 @@ function recommendMood(mood) {
         }
     });
 
-    // 3초 뒤 복구
     setTimeout(() => {
         cards.forEach(card => {
             card.style.display = "";
@@ -63,9 +56,7 @@ function recommendMood(mood) {
     }, 3000);
 }
 
-/* =========================================
-   3. BGM 플레이어 기능 (BGM Player)
-   ========================================= */
+
 let isPlaying = false;
 const BGM_ID = "jfKfPfyJRdk"; 
 
@@ -92,12 +83,9 @@ function toggleBGM() {
     }
 }
 
-/* =========================================
-   4. 페이지 이동 기능
-   ========================================= */
+
 function enterCategory(genre) {
 
-    // 화면 페이드 아웃 효과
     document.body.style.opacity = '0';
     document.body.style.transition = 'opacity 0.5s ease';
 
@@ -106,9 +94,6 @@ function enterCategory(genre) {
     }, 500);
 }
 
-/* =========================================
-   5. 알림 기능
-   ========================================= */
 function voteMusic() {
     alert("소중한 한 표 감사합니다! 🗳️");
 }
@@ -124,9 +109,7 @@ function startQuiz() {
     alert("음악 퀴즈가 준비 중입니다! 조금만 기다려주세요. 🧩");
 }
 
-/* =========================================
-   6. 스크롤 네비게이션 효과
-   ========================================= */
+
 window.addEventListener('scroll', () => {
     const nav = document.querySelector('.navbar');
     if(!nav) return;
