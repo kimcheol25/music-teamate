@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>R&B | Music Lounge</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- 네비게이션 (index랑 톤 맞춤) -->
+    <nav class="navbar">
+        <div class="logo">Music Lounge</div>
+        <ul class="nav-links">
+            <li><a href="index.html#home">홈</a></li>
+            <li><a href="index.html#genres">장르 탐험</a></li>
+            <li><a href="index.html#activity">커뮤니티</a></li>
+        </ul>
+    </nav>
+
+    <!-- R&B 메인 헤더 -->
+    <header class="hero">
+        <div class="hero-content">
+            <h1>R&amp;B VIBES</h1>
+            <p>부드러운 리듬과 감성적인 멜로디가 살아 있는 R&amp;B의 세계</p>
+        </div>
+    </header>
+
+    <!-- R&B 서브 장르 카드 목록 -->
+    <section class="genre-section">
+        <h2 class="section-title">R&amp;B 서브 장르</h2>
+        <p class="section-desc">궁금한 스타일을 선택해서 더 깊게 들어가 보세요.</p>
+
+        <div class="grid-container">
+            <!-- 클래식 / 올드스쿨 R&B -->
+            <div class="card hiphop" onclick="location.href='rnb-classic.html'">
+                <div class="card-visual">🎙️</div>
+                <div class="card-content">
+                    <h3>클래식 / 올드스쿨 R&amp;B</h3>
+                    <p>소울과 밴드 사운드가 살아 있는 레트로 감성 R&amp;B</p>
+                </div>
+            </div>
+
+            <!-- 컨템포러리 / 트랩 R&B -->
+            <div class="card hiphop" onclick="location.href='rnb-contemporary.html'">
+                <div class="card-visual">🌌</div>
+                <div class="card-content">
+                    <h3>컨템포러리 R&amp;B</h3>
+                    <p>힙합과 트랩 사운드가 섞인 현대적인 R&amp;B 스타일</p>
+                </div>
+            </div>
+
+            <!-- 이모 / 멜로딕 & 싱잉 랩 -->
+            <div class="card hiphop" onclick="location.href='rnb-emo.html'">
+                <div class="card-visual">💔</div>
+                <div class="card-content">
+                    <h3>이모 / 멜로딕 R&amp;B</h3>
+                    <p>감정 표현이 강한 멜로디 중심의 싱잉 랩 &amp; R&amp;B</p>
+                </div>
+            </div>
+
+            <!-- 국내 R&B -->
+            <div class="card hiphop" onclick="location.href='rnb-korean.html'">
+                <div class="card-visual">🇰🇷</div>
+                <div class="card-content">
+                    <h3>국내 R&amp;B</h3>
+                    <p>케이힙합, 케이팝과 맞물려 성장한 한국식 R&amp;B</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- (선택) 여기 아래에 R&B 설명 blog-block 섹션들 붙이면 됨 -->
+    <!-- 예: R&B란? / 컨템포러리 / 이모 R&B 등 -->
+
+    <footer class="footer">
+        <p>&copy; 2025 Music Lounge Project. All rights reserved.</p>
+    </footer>
+</body>
+</html>
+
