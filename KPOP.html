@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>K-POP | Music Lounge</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- 네비게이션 -->
+  <nav class="navbar">
+    <div class="logo">Music Lounge</div>
+    <ul class="nav-links">
+      <li><a href="index.html#home">홈</a></li>
+      <li><a href="index.html#genres">장르 탐험</a></li>
+      <li><a href="hiphop.html">힙합</a></li>
+      <li><a href="RNB.html">R&B</a></li>
+      <li><a href="POP.html">POP</a></li>
+    </ul>
+  </nav>
+
+  <!-- K-POP 메인 헤더 -->
+  <header class="hero">
+    <div class="hero-content">
+      <h1>K-POP WORLD</h1>
+      <p>전 세계를 사로잡은 대한민국의 음악, 그 모든 스펙트럼을 한눈에</p>
+    </div>
+  </header>
+
+  <!-- K-POP 서브 장르 카드 목록 -->
+  <section class="genre-section">
+    <h2 class="section-title">K-POP 서브 장르</h2>
+    <p class="section-desc">시대별 · 스타일별로 나뉜 K-POP의 매력을 깊게 탐험해보세요.</p>
+
+    <div class="grid-container">
+
+      <!-- 1세대/2세대 올드 K-POP -->
+      <div class="card hiphop" onclick="location.href='kpop-classic.html'">
+        <div class="card-visual">📼</div>
+        <div class="card-content">
+          <h3>1·2세대 클래식 K-POP</h3>
+          <p>H.O.T부터 소녀시대까지, K-POP의 시작과 황금기</p>
+        </div>
+      </div>
+
+      <!-- Contemporary Idol K-POP -->
+      <div class="card hiphop" onclick="location.href='kpop-idol.html'">
+        <div class="card-visual">✨</div>
+        <div class="card-content">
+          <h3>아이돌 / 컨템포러리 K-POP</h3>
+          <p>BTS·NewJeans·IVE 등 현대 K-POP의 중심</p>
+        </div>
+      </div>
+
+      <!-- Dance / Performance K-POP -->
+      <div class="card hiphop" onclick="location.href='kpop-dance.html'">
+        <div class="card-visual">💃</div>
+        <div class="card-content">
+          <h3>댄스 · 퍼포먼스 K-POP</h3>
+          <p>압도적인 퍼포먼스와 중독성 있는 사운드</p>
+        </div>
+      </div>
+
+      <!-- Ballad / Vocal K-POP -->
+      <div class="card hiphop" onclick="location.href='kpop-ballad.html'">
+        <div class="card-visual">🎤</div>
+        <div class="card-content">
+          <h3>K-POP 발라드 / 보컬</h3>
+          <p>감성을 울리는 대한민국 대표 장르</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>&copy; 2025 Music Lounge Project. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
