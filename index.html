@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Music Lounge - 당신의 플레이리스트</title>
-    <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;700&display=swap" rel="stylesheet">
+    <title>Music Lounge - 오늘의 플레이리스트</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -12,102 +12,95 @@
         <div class="logo">Music Lounge</div>
         <ul class="nav-links">
             <li><a href="#home">홈</a></li>
-            <li><a href="#genres">장르 탐험</a></li>
-            <li><a href="#activity">커뮤니티</a></li>
+            <li><a href="#genres">장르</a></li>
+            <li><a href="#chart">차트</a></li>
+            <li><a href="#community">커뮤니티</a></li>
         </ul>
+        <div class="nav-extras">
+            <div id="digitalClock" class="clock">00:00:00</div>
+            <button id="themeToggle" onclick="toggleTheme()">☀️</button>
+        </div>
     </nav>
 
     <header id="home" class="hero">
         <div class="hero-content">
             <h1>당신의 플레이리스트를<br>완성하세요</h1>
-            <p>K-POP부터 클래식까지, 세상의 모든 음악을 만나다</p>
-            <a href="#genres" class="btn-start">음악 들으러 가기</a>
+            <p> 세상의 모든 음악을 만나다</p>
+            <a href="#chart" class="btn-start">인기 차트 듣기</a>
         </div>
         
         <div class="music-card-floating">
             <div class="album-art-css">
-                <span class="music-icon">🔥</span>
+                <span class="music-icon">🎧</span>
             </div>
             <div class="info">
-                <span>지금 뜨는 음악</span>
-                <strong>NewJeans - OMG</strong>
+                <span>Now Trending</span>
+                <strong>Spotify Chart</strong>
             </div>
         </div>
     </header>
 
     <section id="genres" class="genre-section">
         <h2 class="section-title">장르별 음악 여행</h2>
+<<<<<<< HEAD
         <p class="section-desc">원하는 스타일을 검색하거나 기분에 맞춰 골라보세요</p>
+=======
+        <p class="section-desc">기분에 맞는 음악을 추천해 드릴게요.</p>
+>>>>>>> 74b6bb318f46ed7322ad6f1eecf225000030d98b
         
         <div class="search-container">
             <input type="text" id="searchInput" placeholder="장르 검색 (예: 힙합, 발라드)" onkeyup="filterGenres()">
             <span class="search-icon">🔍</span>
         </div>
 
+<<<<<<< HEAD
         <div class="mood-container">
             <span>오늘의 기분은? 👉 </span>
             <button class="mood-btn" onclick="recommendMood('happy')">😆 신남</button>
             <button class="mood-btn" onclick="recommendMood('sad')">💧 우울</button>
             <button class="mood-btn" onclick="recommendMood('calm')">🌿 차분</button>
             <button class="mood-btn" onclick="recommendMood('party')">😎 파티</button>
+=======
+        <div class="recommendation-tags">
+            <span>오늘의 기분은? 👉 </span>
+            <button class="tag-btn" onclick="filterByMood('all')">🌈 전체보기</button>
+            <button class="tag-btn" onclick="filterByMood('happy')">😆 신남 (K-POP/댄스)</button>
+            <button class="tag-btn" onclick="filterByMood('sad')">💧 우울 (발라드/R&B)</button>
+            <button class="tag-btn" onclick="filterByMood('calm')">🌿 차분 (재즈/클래식)</button>
+            <button class="tag-btn" onclick="filterByMood('party')">😎 파티 (힙합/POP)</button>
+>>>>>>> 74b6bb318f46ed7322ad6f1eecf225000030d98b
         </div>
 
         <div class="grid-container">
-            <div class="card kpop" onclick="enterCategory('kpop')">
+            <div class="card kpop" data-mood="happy party" onclick="enterCategory('kpop')">
                 <div class="card-visual">🎤</div>
-                <div class="card-content">
-                    <h3>K-POP</h3>
-                    <p>글로벌 트렌드의 중심</p>
-                </div>
+                <div class="card-content"><h3>K-POP</h3><p>글로벌 트렌드</p></div>
             </div>
-            
-            <div class="card rnb" onclick="enterCategory('rnb')">
+            <div class="card rnb" data-mood="sad" onclick="enterCategory('rnb')">
                 <div class="card-visual">🍷</div>
-                <div class="card-content">
-                    <h3>R&B</h3>
-                    <p>감성적인 리듬과 소울</p>
-                </div>
+                <div class="card-content"><h3>R&B</h3><p>감성적인 소울</p></div>
             </div>
-
-            <div class="card hiphop" onclick="enterCategory('hiphop')">
+            <div class="card hiphop" data-mood="party" onclick="enterCategory('hiphop')">
                 <div class="card-visual">🧢</div>
-                <div class="card-content">
-                    <h3>HIP-HOP</h3>
-                    <p>자유로운 비트와 라임</p>
-                </div>
+                <div class="card-content"><h3>HIP-HOP</h3><p>자유로운 비트</p></div>
             </div>
-
-            <div class="card ballad" onclick="enterCategory('ballad')">
+            <div class="card ballad" data-mood="sad" onclick="enterCategory('ballad')">
                 <div class="card-visual">🍂</div>
-                <div class="card-content">
-                    <h3>발라드</h3>
-                    <p>마음을 울리는 멜로디</p> 
-                </div>
+                <div class="card-content"><h3>발라드</h3><p>마음을 울리는</p></div>
             </div>
-
-            <div class="card trot" onclick="enterCategory('trot')">
+             <div class="card trot" data-mood="happy party" onclick="enterCategory('trot')">
                 <div class="card-visual">✨</div>
-                <div class="card-content">
-                    <h3>트로트</h3>
-                    <p>흥이 넘치는 우리 가락</p>
-                </div>
+                <div class="card-content"><h3>트로트</h3><p>흥겨운 가락</p></div>
             </div>
-
-            <div class="card classic" onclick="enterCategory('classic')">
+             <div class="card classic" data-mood="calm" onclick="enterCategory('classic')">
                 <div class="card-visual">🎻</div>
-                <div class="card-content">
-                    <h3>클래식</h3>
-                    <p>불멸의 명곡</p>
-                </div>
+                <div class="card-content"><h3>클래식</h3><p>불멸의 명곡</p></div>
             </div>
-
-            <div class="card jazz" onclick="enterCategory('jazz')">
+             <div class="card jazz" data-mood="calm" onclick="enterCategory('jazz')">
                 <div class="card-visual">🎷</div>
-                <div class="card-content">
-                    <h3>재즈</h3>
-                    <p>즉흥 연주의 매력</p>
-                </div>
+                <div class="card-content"><h3>재즈</h3><p>즉흥 연주</p></div>
             </div>
+<<<<<<< HEAD
 
             <div class="card pop" onclick="location.href='POP.html'">
     <div class="card-visual">🎸</div>
@@ -117,37 +110,50 @@
     </div>
 </div>
 
+=======
+             <div class="card pop" data-mood="happy party" onclick="enterCategory('pop')">
+                <div class="card-visual">🎸</div>
+                <div class="card-content"><h3>POP</h3><p>월드 와이드</p></div>
+            </div>
+>>>>>>> 74b6bb318f46ed7322ad6f1eecf225000030d98b
         </div>
     </section>
 
-    <section id="activity" class="activity-section">
-        <h2 class="section-title">함께 즐기는 음악</h2>
-        <div class="activity-container">
-            <div class="act-box">
-                <div class="icon">🏆</div>
-                <h3>이달의 노래 투표</h3>
-                <p>가장 좋았던 곡에 투표해주세요.</p>
-                <button class="act-btn" onclick="voteMusic()">투표하기</button>
+<section id="chart" class="chart-section">
+        <h2 class="section-title">🔥 실시간 음악 TOP 50 (Korea)</h2>
+        <div class="chart-container" style="max-width: 600px; margin: 0 auto;">
+            <iframe style="border-radius:12px" 
+                    src="https://open.spotify.com/embed/playlist/37i9dQZEVXbJZGli0rRP3r?utm_source=generator&theme=0" 
+                    width="100%" 
+                    height="500" 
+                    frameBorder="0" 
+                    allowfullscreen="" 
+                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+                    loading="lazy">
+            </iframe>
+        </div>
+    </section>
+
+    <section id="community" class="community-section">
+        <h2 class="section-title">🎧 신청곡 & 수다방</h2>
+        
+        <div class="board-container">
+            <div class="board-input">
+                <input type="text" id="boardName" placeholder="닉네임">
+                <input type="text" id="boardMsg" placeholder="신청곡이나 하고 싶은 말을 남겨보세요!">
+                <button onclick="addPost()">등록</button>
             </div>
-            <div class="act-box">
-                <div class="icon">🎧</div>
-                <h3>신청곡 게시판</h3>
-                <p>듣고 싶은 노래를 신청하세요.</p>
-                <button class="act-btn" onclick="addRequest()">신청하기</button>
-            </div>
-            <div class="act-box">
-                <div class="icon">🧩</div>
-                <h3>음악 퀴즈</h3>
-                <p>전주만 듣고 노래 맞추기!</p>
-                <button class="act-btn" onclick="startQuiz()">도전하기</button>
-            </div>
+            <ul id="boardList" class="board-list">
+                </ul>
+            <button onclick="clearPosts()" class="btn-clear">게시판 초기화 </button>
         </div>
     </section>
 
     <footer class="footer">
-        <p>&copy; 2025 Music Lounge Project. All rights reserved.</p>
+        <p>© 2025 Music Lounge Project. Powered by Spotify.</p>
     </footer>
 
+<<<<<<< HEAD
     <div class="floating-player">
         <div class="cd-disk" id="cdDisk">
             <div class="cd-inner"></div>
@@ -157,6 +163,11 @@
             <button onclick="toggleBGM()" class="play-toggle-btn" id="playBtn">▶</button>
         </div>
         <iframe id="bgmFrame" width="0" height="0" src="" frameborder="0" allow="autoplay"></iframe>
+=======
+    <div class="floating-theme-changer" onclick="rotateTheme()">
+        <div class="theme-icon" id="themeIcon">🎨</div>
+        <span class="theme-label">배경 변경</span>
+>>>>>>> 74b6bb318f46ed7322ad6f1eecf225000030d98b
     </div>
 
     <script src="script.js"></script>
