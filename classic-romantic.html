@@ -3,133 +3,166 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>트랩 힙합 | Music Lounge</title>
+  <title>클래식 로맨틱 | Music Lounge</title>
   <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;700&display=swap" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
-  <style>
-    * { margin:0; padding:0; box-sizing:border-box; }
-    body { font-family:'Pretendard', sans-serif; background:#f9f9f9; color:#333; line-height:1.6; }
-
-    /* 네비게이션 */
-    .navbar { display:flex; justify-content:space-between; align-items:center; padding:20px 40px; background:#fff; border-bottom:1px solid #ddd; position:sticky; top:0; z-index:100; }
-    .navbar .nav-links li { display:inline-block; margin-left:20px; }
-    .navbar a { color:#222; transition:0.3s; }
-    .navbar a:hover { color:#e74c3c; }
-
-    /* 블로그 레이아웃 */
-    .blog-layout { display:flex; flex-wrap:wrap; max-width:1200px; margin:40px auto; gap:40px; padding:0 20px; }
-    .blog-body { flex:3; }
-    .blog-sidebar { flex:1; display:flex; flex-direction:column; gap:20px; position:sticky; top:100px; }
-
-    /* 헤더 */
-    .blog-header { margin-bottom:30px; }
-    .breadcrumb a { color:#666; margin-right:5px; }
-    .breadcrumb span { color:#aaa; }
-    .blog-title-row { display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:20px; }
-    .blog-title-row h1 { font-size:2.4rem; color:#222; margin-top:10px; }
-    .blog-subtitle { font-size:1.1rem; color:#555; margin:10px 0; }
-    .blog-meta span { display:inline-block; margin-right:10px; font-size:0.9rem; color:#999; }
-
-    .tag-chip { background:#fce5e0; color:#e74c3c; padding:5px 12px; border-radius:20px; font-size:0.85rem; margin-right:8px; display:inline-block; transition:0.3s; cursor:pointer; }
-    .tag-chip:hover { background:#e74c3c; color:white; }
-
-    /* 블로그 블록 */
-    .blog-block { background:white; padding:30px; margin-bottom:30px; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.05); transition:0.3s; }
-    .blog-block:hover { transform:translateY(-3px); box-shadow:0 8px 16px rgba(0,0,0,0.08); }
-    .blog-block h2 { font-size:1.6rem; margin-bottom:15px; color:#222; }
-    .check-list li { margin-bottom:12px; padding-left:20px; position:relative; }
-    .check-list li::before { content:"✔"; position:absolute; left:0; color:#e74c3c; }
-
-    /* 카드형 정보 */
-    .info-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(220px,1fr)); gap:20px; }
-    .info-card { background:#fff; padding:20px; border-radius:12px; box-shadow:0 2px 6px rgba(0,0,0,0.05); transition:0.3s; }
-    .info-card:hover { transform:translateY(-5px); box-shadow:0 6px 12px rgba(0,0,0,0.08); }
-
-    /* 아티스트 리스트 */
-    .artist-list li { display:flex; justify-content:space-between; align-items:center; padding:10px 0; border-bottom:1px solid #eee; }
-    .artist-name { font-weight:600; }
-    .artist-desc { color:#666; font-size:0.9rem; }
-
-    /* 테이블 */
-    .song-table { width:100%; border-collapse:collapse; margin-top:10px; }
-    .song-table th, .song-table td { border:1px solid #ddd; padding:12px; text-align:left; }
-    .song-table th { background:#e74c3c; color:white; }
-
-    .song-cover { width:60px; border-radius:8px; }
-
-    /* 사이드바 카드 */
-    .side-card { background:white; padding:20px; border-radius:12px; box-shadow:0 4px 10px rgba(0,0,0,0.05); }
-    .chip-row { display:flex; flex-wrap:wrap; gap:10px; }
-
-    /* 블로그 요약 */
-    .blog-summary p { font-size:1.1rem; color:#444; margin-top:10px; }
-
-    /* 반응형 */
-    @media(max-width:900px){ .blog-layout{ flex-direction:column; } .blog-sidebar{ position:relative; top:auto; } }
-    @media(max-width:500px){ .blog-title-row h1{ font-size:2rem; } }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
+  <!-- 네비게이션 -->
   <nav class="navbar">
     <div class="logo">Music Lounge</div>
     <ul class="nav-links">
       <li><a href="index.html#home">홈</a></li>
-      <li><a href="hiphop.html">힙합 메인</a></li>
+      <li><a href="classic.html">클래식 메인</a></li>
       <li><a href="index.html#genres">장르 탐험</a></li>
     </ul>
   </nav>
 
   <main class="blog-layout">
+    <!-- 헤더 -->
+    <section class="blog-header">
+      <div class="breadcrumb">
+        <a href="index.html#genres">장르별 음악 여행</a> ·
+        <a href="classic.html">클래식</a> ·
+        <span>로맨틱</span>
+      </div>
+      <div class="blog-title-row">
+        <div>
+          <span class="tag-chip tag-classic">CLASSIC</span>
+          <span class="tag-chip">Romantic</span>
+          <h1>로맨틱 클래식, 감성과 서사의 절정</h1>
+          <p class="blog-subtitle">
+            감정과 극적 표현이 살아있는 19세기 음악의 정수
+          </p>
+          <div class="blog-meta">
+            <span>분위기 · 서정 · 극적 · 감성</span>
+            <span>전성기 · 1820~1900</span>
+          </div>
+        </div>
+        <div class="blog-hero-emoji">
+          <span>🎹</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 본문 -->
     <section class="blog-body">
-
       <article class="blog-content">
-        <section class="blog-header" data-aos="fade-up">
-          <div class="breadcrumb">
-            <a href="index.html#genres">장르별 음악 여행</a> ·
-            <a href="hiphop.html">힙합</a> ·
-            <span>트랩</span>
-          </div>
-
-          <div class="blog-title-row">
-            <div>
-              <span class="tag-chip">HIP-HOP</span>
-              <span class="tag-chip">트랩</span>
-              <h1>트랩, 808이 지배하는 현대 힙합의 메인 스트림</h1>
-              <p class="blog-subtitle">묵직한 저음과 하이햇 롤, 어둡지만 중독적인 사운드</p>
-              <div class="blog-meta">
-                <span>분위기 · 다크 · 몽환 · 헤비</span>
-                <span>전성기 · 2010년대 이후</span>
-              </div>
-            </div>
-            <div class="blog-hero-emoji"><span>🔥</span></div>
+        <!-- 장르 소개 -->
+        <section class="blog-block">
+          <h2>1. 로맨틱 시대란?</h2>
+          <p>개인 감정과 표현의 극대화가 중시된 19세기 클래식 음악 시대입니다. 극적인 선율, 풍부한 화성, 교향곡과 피아노 작품이 발달했습니다.</p>
+          <div class="image-grid">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/0/0d/Frederic_Chopin_1835.jpg" alt="쇼팽" class="blog-image">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/Tchaikovsky_1885.jpg" alt="차이콥스키" class="blog-image">
           </div>
         </section>
 
-        <section class="blog-block" data-aos="fade-up">
-          <h2>1. 트랩이란?</h2>
-          <p>트랩(Trap)은 미국 남부, 특히 애틀랜타를 중심으로 발전한 힙합 스타일로, ‘마약 거래가 이뤄지는 공간’이라는 의미에서 출발한 단어예요. 어두운 분위기의 신스와 묵직한 808 베이스, 촘촘한 하이햇 패턴이 특징입니다.</p>
-          <p>가사에서는 거리의 삶, 성공과 실패, 물질적인 욕망, 내적인 불안과 같은 주제들이 자주 등장하며, 오토튠을 활용한 멜로디 랩과도 자연스럽게 섞여 있습니다.</p>
-        </section>
-
-        <section class="blog-block" data-aos="fade-up">
-          <h2>2. 사운드 & 리듬 특징</h2>
-          <ul class="check-list">
-            <li>강한 <strong>808 킥과 서브 베이스</strong>가 저음을 채움</li>
-            <li><strong>트리플렛 기반 하이햇 롤</strong>, 스네어 롤</li>
-            <li>어둡고 몽환적인 신스/패드, 간단한 코드 진행</li>
-            <li>훅(후렴)이 반복적이고 중독적인 구조</li>
+        <!-- 대표 작곡가 -->
+        <section class="blog-block">
+          <h2>2. 대표 작곡가</h2>
+          <ul class="artist-list">
+            <li><span class="artist-name">쇼팽 (F. Chopin)</span> - <span class="artist-desc">피아노 소품, 녹턴, 발라드 등 서정적 작품</span></li>
+            <li><span class="artist-name">차이콥스키 (P.I. Tchaikovsky)</span> - <span class="artist-desc">교향곡, 발레음악 '백조의 호수'</span></li>
+            <li><span class="artist-name">리스트 (F. Liszt)</span> - <span class="artist-desc">피아노 연주와 화려한 기교</span></li>
+            <li><span class="artist-name">슈만 (R. Schumann)</span> - <span class="artist-desc">서정적 피아노곡과 가곡</span></li>
           </ul>
+          <div class="image-grid">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/f/f5/Franz_Liszt_1858.jpg" alt="리스트" class="blog-image">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/5/5a/Schumann_by_Jensen_1839.jpg" alt="슈만" class="blog-image">
+          </div>
         </section>
 
+        <!-- 추천 작품 -->
+        <section class="blog-block">
+          <h2>3. 추천 작품 & 영상</h2>
+          <table class="song-table">
+            <thead>
+              <tr>
+                <th>커버</th>
+                <th>곡명</th>
+                <th>작곡가</th>
+                <th>포인트</th>
+                <th>영상</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><img src="https://upload.wikimedia.org/wikipedia/commons/0/0d/Frederic_Chopin_1835.jpg" class="song-cover" alt="녹턴 Op.9 No.2"></td>
+                <td>녹턴 Op.9 No.2</td>
+                <td>쇼팽</td>
+                <td>서정적 선율과 감정이 돋보이는 피아노 곡</td>
+                <td><a href="https://www.youtube.com/watch?v=9E6b3swbnWg" target="_blank">▶ 감상하기</a></td>
+              </tr>
+              <tr>
+                <td><img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/Tchaikovsky_1885.jpg" class="song-cover" alt="백조의 호수"></td>
+                <td>백조의 호수</td>
+                <td>차이콥스키</td>
+                <td>극적 발레음악, 서정적 선율</td>
+                <td><a href="https://www.youtube.com/watch?v=9cNQFB0TDfU" target="_blank">▶ 감상하기</a></td>
+              </tr>
+              <tr>
+                <td><img src="https://upload.wikimedia.org/wikipedia/commons/f/f5/Franz_Liszt_1858.jpg" class="song-cover" alt="헝가리 광시곡"></td>
+                <td>헝가리 광시곡</td>
+                <td>리스트</td>
+                <td>화려한 테크닉과 극적 감정</td>
+                <td><a href="https://www.youtube.com/watch?v=Rb0UmrCXxVA" target="_blank">▶ 감상하기</a></td>
+              </tr>
+              <tr>
+                <td><img src="https://upload.wikimedia.org/wikipedia/commons/5/5a/Schumann_by_Jensen_1839.jpg" class="song-cover" alt="어린이 정경"></td>
+                <td>어린이 정경</td>
+                <td>슈만</td>
+                <td>서정적인 이야기와 감성을 담은 피아노 곡집</td>
+                <td><a href="https://www.youtube.com/watch?v=Z1CkT7B7yLE" target="_blank">▶ 감상하기</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <!-- 요약 -->
+        <section class="blog-block blog-summary">
+          <h2>한 줄 요약</h2>
+          <p>💬 로맨틱 클래식은 감정과 극적 표현이 살아있는 19세기 음악의 정수, 피아노와 오케스트라를 통해 서사와 감정을 느낄 수 있습니다.</p>
+        </section>
       </article>
+
+      <!-- 사이드바 -->
+      <aside class="blog-sidebar">
+        <div class="side-card">
+          <h3>로맨틱 클래식 한눈에 보기</h3>
+          <ul class="side-list">
+            <li><span>주요 작곡가</span><strong>쇼팽 · 차이콥스키 · 리스트 · 슈만</strong></li>
+            <li><span>분위기</span><strong>서정 · 극적 · 감성</strong></li>
+            <li><span>대표 악기</span><strong>피아노 · 현악 · 목관</strong></li>
+            <li><span>대표 형식</span><strong>교향곡 · 소나타 · 발레 음악</strong></li>
+          </ul>
+        </div>
+
+        <div class="side-card">
+          <h3>추천 키워드</h3>
+          <div class="chip-row">
+            <span class="tag-chip">녹턴</span>
+            <span class="tag-chip">교향곡</span>
+            <span class="tag-chip">발레</span>
+            <span class="tag-chip">피아노 소품</span>
+            <span class="tag-chip">서정적</span>
+          </div>
+        </div>
+
+        <div class="side-card">
+          <h3>다음에 볼 장르</h3>
+          <ul class="link-list">
+            <li><a href="classic-baroque.html">바로크 보러가기 →</a></li>
+            <li><a href="classic-classical.html">고전주의 보러가기 →</a></li>
+            <li><a href="classic-modern.html">근현대 보러가기 →</a></li>
+          </ul>
+        </div>
+      </aside>
     </section>
   </main>
 
-  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-  <script>
-    AOS.init({ duration:1000, once:true });
-  </script>
-
+  <footer class="footer">
+    <p>&copy; 2025 Music Lounge Project. All rights reserved.</p>
+  </footer>
 </body>
 </html>
