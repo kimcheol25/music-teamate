@@ -87,6 +87,31 @@ function recommendMusic() {
     resultBox.innerHTML = `<div onclick="window.open('${url}','_blank')" style="cursor:pointer; width:100%;">추천곡: <u>${song}</u> (클릭)</div>`;
 }
 
+/* ==================================================
+   [NEW] 사이드바 메뉴 이동 및 활성화 함수
+   ================================================== */
+function movePage(event, targetId, clickedLink) {
+    event.preventDefault(); // 기본 이동 방지
+
+    // 1. 모든 메뉴의 Active 상태 제거
+    const allLinks = document.querySelectorAll('.d-menu a');
+    allLinks.forEach(link => link.classList.remove('active'));
+    
+    // 2. 현재 클릭한 메뉴 Active 상태 추가
+    clickedLink.classList.add('active');
+
+    // 3. 스크롤 이동
+    const mainContainer = document.querySelector('.d-main');
+    if (targetId === 'top') {
+        mainContainer.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+        const targetElement = document.getElementById(targetId);
+        if (targetElement) {
+            targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    }
+}
+
 window.onload = function() {
     updateClock();
     renderCalendar();
