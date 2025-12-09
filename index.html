@@ -3,127 +3,285 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Music Lounge Dashboard</title>
-    <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <title>Music Lounge | 당신의 플레이리스트</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="dashboard-wrapper">
-    
-    <aside class="d-sidebar">
-        <div class="d-logo">
-            <span style="color:#1ED760;">l|l</span> Music Lounge
-        </div>
-        <ul class="d-menu">
-            <li><a href="#" class="active" onclick="movePage(event, 'top', this)">🏠 홈</a></li>
-            <li><a href="#" onclick="movePage(event, 'genres', this)">🎵 장르 탐색</a></li>
-            <li><a href="#" onclick="movePage(event, 'community', this)">💬 커뮤니티</a></li>
-        </ul>
+    <div class="container">
         
-        <div style="margin-top:auto; padding-top:20px; border-top:1px solid #333;">
-            <p style="font-size:0.8rem; font-weight:bold; color:#888; margin-bottom:10px;">MOOD STATION</p>
-            <div style="display:flex; flex-wrap:wrap; gap:8px;">
-                <button onclick="filterByMood('all')" style="background:#333; color:white; padding:6px 12px; border-radius:20px;">🌈 전체</button>
-                <button onclick="filterByMood('happy')" style="background:#333; color:white; padding:6px 12px; border-radius:20px;">😆 신남</button>
-                <button onclick="filterByMood('sad')" style="background:#333; color:white; padding:6px 12px; border-radius:20px;">💧 우울</button>
-                <button onclick="filterByMood('calm')" style="background:#333; color:white; padding:6px 12px; border-radius:20px;">🌿 차분</button>
-                <button onclick="filterByMood('party')" style="background:#333; color:white; padding:6px 12px; border-radius:20px;">😎 파티</button>
-                <button onclick="filterByMood('focus')" style="background:#333; color:white; padding:6px 12px; border-radius:20px;">☕ 집중</button>
+        <aside class="sidebar">
+            <div class="logo">
+                <i class="fa-solid fa-record-vinyl fa-spin-pulse" style="--fa-animation-duration: 3s;"></i>
+                <h2>Music<br>Lounge</h2>
             </div>
-        </div>
-    </aside>
 
-    <main class="d-main">
+            <nav class="menu">
+                <ul>
+                    <li class="active"><a href="index.html"><i class="fa-solid fa-house"></i> 홈</a></li>
+                    <li><a href="#genres"><i class="fa-solid fa-music"></i> 장르</a></li>
+                    <li><a href="#community"><i class="fa-solid fa-users"></i> 커뮤니티</a></li>
+                </ul>
+            </nav>
+
+<div class="sidebar-search">
+    <div class="search-box-mini">
+        <input type="text" id="genre-search" placeholder="장르 검색..." autocomplete="off">
+        <button id="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
         
-        <div style="display:flex; justify-content:flex-end; margin-bottom:20px;">
-            <div id="digitalClock" style="background:rgba(255,255,255,0.1); padding:8px 20px; border-radius:20px; font-weight:bold; color:#1ED760; font-family:monospace;">00:00:00</div>
-        </div>
-
-        <div class="d-top-section">
-            <section class="d-banner">
-                <div>
-                    <h1>당신의 플레이리스트를<br>완성하세요</h1>
-                    <p style="font-size:1.2rem; opacity:0.9; color:#ccc;">지금 가장 핫한 음악들을 만나보세요.</p>
-                    <a href="javascript:void(0)" onclick="scrollToPlayer()" class="d-play-btn">▶ 인기 차트 재생</a>
-                </div>
-                <div style="font-size:8rem; opacity:0.5; transform:rotate(-15deg);">🎧</div>
-            </section>
-
-            <aside class="d-right-panel">
-                <div class="d-calendar">
-                    <div style="display:flex; justify-content:space-between; font-weight:bold; color:#1ED760; margin-bottom:10px;">
-                        <span id="calMonth">DEC</span> <span id="calYear">2025</span>
-                    </div>
-                    <div class="cal-grid" id="calendarGrid"></div>
-                </div>
-                
-                <div class="d-spotify" id="spotifyPlayer">
-                    <iframe style="border-radius:12px" 
-                            src="https://open.spotify.com/embed/playlist/37i9dQZEVXbJZGli0rRP3r?utm_source=generator&theme=0" 
-                            width="100%" 
-                            height="100%" 
-                            frameBorder="0" 
-                            allowfullscreen="" 
-                            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
-                            loading="lazy">
-                    </iframe>
-                </div>
-            </aside>
-        </div>
-
-        <h2 id="genres" style="font-size:1.8rem; margin-bottom:20px; color:white; border-bottom:1px solid #333; padding-bottom:10px;">장르별 음악 여행</h2>
-        <div class="d-genre-grid">
-            <div class="d-card" style="border-top:4px solid #FF61D2;" data-mood="happy party" onclick="location.href='kpop.html'">
-                <h3>K-POP</h3> <p>글로벌 트렌드</p> <div class="d-icon">🎤</div>
-            </div>
-            <div class="d-card" style="border-top:4px solid #4facfe;" data-mood="sad" onclick="location.href='rnb.html'">
-                <h3>R&B</h3> <p>감성적인 소울</p> <div class="d-icon">🍷</div>
-            </div>
-            <div class="d-card" style="border-top:4px solid #555;" data-mood="party" onclick="location.href='hiphop.html'">
-                <h3>HIP-HOP</h3> <p>자유로운 비트</p> <div class="d-icon">🧢</div>
-            </div>
-            <div class="d-card" style="border-top:4px solid #a18cd1;" data-mood="sad" onclick="location.href='ballad.html'">
-                <h3>발라드</h3> <p>마음을 울리는</p> <div class="d-icon">🍂</div>
-            </div>
-            <div class="d-card" style="border-top:4px solid #f6d365;" data-mood="happy party" onclick="location.href='trot.html'">
-                <h3>트로트</h3> <p>흥겨운 가락</p> <div class="d-icon">✨</div>
-            </div>
-            <div class="d-card" style="border-top:4px solid #89f7fe;" data-mood="calm" onclick="location.href='classic.html'">
-                <h3>클래식</h3> <p>불멸의 명곡</p> <div class="d-icon">🎻</div>
-            </div>
-            <div class="d-card" style="border-top:4px solid #ff9a9e;" data-mood="happy" onclick="location.href='pop.html'">
-                <h3>POP</h3> <p>월드 와이드</p> <div class="d-icon">🎸</div>
-            </div>
-            <div class="d-card" style="border-top:4px solid #30cfd0;" data-mood="calm" onclick="location.href='jazz.html'">
-                <h3>재즈</h3> <p>즉흥 연주</p> <div class="d-icon">🎷</div>
-            </div>
-        </div>
-
-        <div class="d-bottom" id="community">
-            <section class="d-box">
-                <h3 style="color:white; margin-bottom:15px;">🎧 신청곡 & 수다방</h3>
-                <div style="display:flex;">
-                    <input type="text" id="boardName" placeholder="닉네임" class="d-input" style="width:25%;">
-                    <input type="text" id="boardMsg" placeholder="내용 입력" class="d-input" style="flex:1;">
-                    <button onclick="addPost()" style="background:#1ED760; padding:0 20px; border-radius:5px; font-weight:bold;">등록</button>
-                </div>
-                <ul id="boardList" style="margin-top:10px; color:#ccc; list-style:none;"></ul>
-            </section>
-
-            <section class="d-box">
-                <h3 style="color:white; margin-bottom:15px;">🤖 AI 음악 추천</h3>
-                <div style="display:flex;">
-                    <input type="text" id="moodInput" placeholder="기분을 입력하세요 (예: 우울해)" class="d-input">
-                    <button onclick="recommendMusic()" style="background:#1ED760; padding:0 20px; border-radius:5px; font-weight:bold;">추천</button>
-                </div>
-                <div id="recommendResult" style="margin-top:15px; color:#1ED760; font-weight:bold;"></div>
-            </section>
-        </div>
-
-    </main>
+        <div id="suggestion-box" class="suggestions-list"></div>
+    </div>
 </div>
 
-<script src="script.js"></script>
+            <div class="mood-section">
+                <h3>MOOD</h3>
+                <div class="mood-grid">
+                    <button class="mood-btn" data-target="genre-hiphop,genre-kpop">🔥 신나는</button>
+                    <button class="mood-btn" data-target="genre-jazz,genre-classic">🌙 차분한</button>
+                    <button class="mood-btn" data-target="genre-ballad,genre-rnb">💧 우울한</button>
+                    <button class="mood-btn" data-target="genre-pop,genre-hiphop">🚗 드라이브</button>
+                    <button class="mood-btn" data-target="genre-kpop,genre-pop">🎉 파티</button>
+                    <button class="mood-btn" data-target="genre-classic,genre-jazz">💤 잠잘때</button>
+                </div>
+            </div>
+
+            <div class="bottom-widgets">
+                <div class="digital-clock-container">
+                    <div id="digital-clock">00:00:00</div>
+                    <div id="date-display"></div>
+                </div>
+            </div>
+        </aside>
+
+<main class="main-content">
+            
+            <header class="banner music-vibe">
+                <div class="banner-content">
+                    <h1>Rhythm of Your Life</h1>
+                    <p>당신의 하루를 완성할 플레이리스트를 지금 만나보세요.</p>
+                    <button id="play-chart-btn" class="cta-btn">
+                        <i class="fa-solid fa-play"></i> 인기 차트 듣기
+                    </button>
+                </div>
+                <div class="banner-deco">
+                    <i class="fa-solid fa-music note-1"></i>
+                    <i class="fa-solid fa-music note-2"></i>
+                    <i class="fa-solid fa-headphones note-3"></i>
+                </div>
+            </header>
+
+<div class="genre-grid" id="genres">
+                    <a href="kpop.html" class="genre-card" id="genre-kpop">
+                        <i class="fa-solid fa-k"></i> <h3>K-POP</h3> <p>Global Trend</p>
+                    </a>
+                    <a href="pop.html" class="genre-card" id="genre-pop">
+                        <i class="fa-regular fa-star"></i> <h3>POP</h3> <p>World Best</p>
+                    </a>
+                    <a href="hiphop.html" class="genre-card" id="genre-hiphop">
+                        <i class="fa-solid fa-hand-peace"></i> <h3>HIP-HOP</h3> <p>Drop the Beat</p>
+                    </a>
+                    <a href="ballad.html" class="genre-card" id="genre-ballad">
+                        <i class="fa-solid fa-guitar"></i> <h3>발라드</h3> <p>Emotional</p>
+                    </a>
+                    <a href="rnb.html" class="genre-card" id="genre-rnb">
+                        <i class="fa-solid fa-microphone-lines"></i> <h3>R&B</h3> <p>Soul & Groove</p>
+                    </a>
+                    
+                    <a href="jazz.html" class="genre-card" id="genre-jazz">
+                        <i class="fa-solid fa-compact-disc"></i> <h3>재즈</h3> <p>Swing & Blue</p>
+                    </a>
+
+                    <a href="trot.html" class="genre-card" id="genre-trot">
+                        <i class="fa-solid fa-star"></i> <h3>트로트</h3> <p>Korea Soul</p>
+                    </a>
+                    <a href="classic.html" class="genre-card" id="genre-classic">
+                        <i class="fa-solid fa-music"></i> <h3>클래식</h3> <p>Masterpiece</p>
+                    </a>
+                </div>
+            </section>
+
+            <div class="bottom-dashboard">
+                
+                <div class="dashboard-col spotify-col" id="spotify-player">
+                    <div class="col-header">
+                        <h3><i class="fa-brands fa-spotify"></i> Now Trending</h3>
+                    </div>
+                    <div class="iframe-container">
+                        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZEVXbMDoHDwVN2tF?utm_source=generator&theme=0" width="100%" height="100%" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                    </div>
+                </div>
+
+                <div class="right-widgets-col">
+                    
+                    <div class="dashboard-col request-col" id="community">
+                        <div class="col-header"><h3><i class="fa-solid fa-comments"></i> 신청곡 & 수다방</h3></div>
+                        <div class="chat-box">
+                            <input type="text" placeholder="신청곡 제목..." class="request-input">
+                            <textarea placeholder="할 말을 남겨주세요." rows="4" class="request-area"></textarea>
+                            <button class="submit-btn">등록하기</button>
+                        </div>
+                    </div>
+
+                    <div class="dashboard-col ai-col">
+                        <div class="col-header"><h3><i class="fa-solid fa-robot"></i> AI DJ 추천</h3></div>
+                        <div class="ai-box">
+                            <div class="ai-input-row">
+                                <input type="text" id="ai-input" placeholder="예: 비오는 날">
+                                <button id="ai-btn"><i class="fa-solid fa-wand-magic-sparkles"></i></button>
+                            </div>
+                            <div id="ai-result" class="ai-result-card" style="display: none;">
+                                <p class="recommend-text">추천 결과가 여기에 표시됩니다.</p>
+                                <a href="#" id="yt-link" target="_blank">듣기 →</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div> </div> </main>
+    </div>
+
+    <div id="theme-toggle" class="floating-theme-btn">
+        <i class="fa-solid fa-moon"></i>
+    </div>
+
+    <script src="script.js"></script>
+<script>
+    // 1. 데이터 정의 (이전과 동일)
+    const musicPages = [
+        { file: 'KPOP.html', keywords: ['케이팝', 'kpop', 'k-pop', '가요'] },
+        { file: 'pop-rock.html', keywords: ['팝', 'pop', '팝송'] },
+        { file: 'hiphop.html', keywords: ['힙합', 'hiphop', 'hip-hop'] },
+        { file: 'ballad.html', keywords: ['발라드', 'ballad'] },
+        { file: 'jazz.html', keywords: ['재즈', 'jazz'] },
+        { file: 'classic.html', keywords: ['클래식', 'classic'] },
+        { file: 'kpop-idol.html', keywords: ['아이돌', 'idol'] },
+        { file: 'kpop-dance.html', keywords: ['댄스', 'dance'] },
+        { file: 'kpop-ballad.html', keywords: ['케이팝 발라드', 'kpop ballad'] },
+        { file: 'kpop-classic.html', keywords: ['케이팝 클래식'] },
+        { file: 'jazz-swing.html', keywords: ['스윙', 'swing'] },
+        { file: 'jazz-bebop.html', keywords: ['비밥', 'bebop'] },
+        { file: 'jazz-fusion.html', keywords: ['퓨전', 'fusion'] },
+        { file: 'jazz-cool.html', keywords: ['쿨재즈', 'cool jazz'] },
+        { file: 'hiphop-boom-bap.html', keywords: ['붐뱁', 'boom bap'] },
+        { file: 'hiphop-trap.html', keywords: ['트랩', 'trap'] },
+        { file: 'hiphop-melodic.html', keywords: ['멜로딕', 'melodic'] },
+        { file: 'hiphop-oldschool.html', keywords: ['올드스쿨', 'oldschool'] },
+        { file: 'ballad-rock.html', keywords: ['락발라드', 'rock ballad'] },
+        { file: 'ballad-rnb.html', keywords: ['알앤비', 'rnb', 'r&b'] },
+        { file: 'ballad-indie.html', keywords: ['인디', 'indie'] },
+        { file: 'ballad-traditional.html', keywords: ['정통 발라드', 'traditional'] },
+        { file: 'classic-baroque.html', keywords: ['바로크', 'baroque'] },
+        { file: 'classic-romantic.html', keywords: ['낭만', 'romantic'] },
+        { file: 'classic-modern.html', keywords: ['현대', 'modern'] },
+        { file: 'pop-dance.html', keywords: ['팝댄스', 'pop dance'] },
+        { file: 'pop-indie.html', keywords: ['팝인디', 'pop indie'] },
+        { file: 'trot.html', keywords: ['트로트', 'trot'] }
+    ];
+
+    const searchInput = document.getElementById('genre-search');
+    const suggestionBox = document.getElementById('suggestion-box');
+    const searchBtn = document.getElementById('search-btn');
+
+    // 2. 검색 실행 함수 (페이지 이동)
+    function performSearch(query) {
+        if (!query) {
+            query = searchInput.value.toLowerCase().trim().replace(/\s+/g, '');
+        } else {
+            query = query.toLowerCase().trim().replace(/\s+/g, '');
+        }
+
+        if (query === "") {
+            alert("검색어를 입력해주세요!");
+            return;
+        }
+
+        const result = musicPages.find(page => 
+            page.keywords.some(keyword => keyword.replace(/\s+/g, '').includes(query))
+        );
+
+        if (result) {
+            window.location.href = result.file;
+        } else {
+            alert("해당하는 장르를 찾을 수 없습니다.");
+        }
+    }
+
+    // 3. 추천 검색어 표시 함수 (핵심 기능)
+    function showSuggestions() {
+        const query = searchInput.value.toLowerCase().trim();
+        suggestionBox.innerHTML = ''; // 기존 목록 초기화
+
+        if (query.length < 1) {
+            suggestionBox.style.display = 'none';
+            return;
+        }
+
+        // 입력된 단어가 포함된 키워드 찾기
+        let matches = [];
+        musicPages.forEach(page => {
+            page.keywords.forEach(keyword => {
+                if (keyword.toLowerCase().includes(query)) {
+                    // 중복 방지 및 객체 형태로 저장
+                    matches.push({ text: keyword, file: page.file });
+                }
+            });
+        });
+
+        // 결과가 있으면 목록 보여주기
+        if (matches.length > 0) {
+            suggestionBox.style.display = 'block';
+            
+            // 중복 제거 (Set 사용) - 같은 키워드가 여러 번 뜨는 것 방지
+            const uniqueMatches = [...new Map(matches.map(item => [item.text, item])).values()];
+
+            uniqueMatches.forEach(match => {
+                const div = document.createElement('div');
+                div.classList.add('suggestion-item');
+                div.innerHTML = `<i class="fa-solid fa-music"></i> ${match.text}`; // 아이콘 + 텍스트
+                
+                // 목록 클릭 시 바로 이동
+                div.onclick = () => {
+                    searchInput.value = match.text; // 클릭한 텍스트를 검색창에 넣고
+                    window.location.href = match.file; // 페이지 이동
+                    suggestionBox.style.display = 'none';
+                };
+                
+                suggestionBox.appendChild(div);
+            });
+        } else {
+            suggestionBox.style.display = 'none';
+        }
+    }
+
+    // 4. 이벤트 리스너 연결
+    document.addEventListener('DOMContentLoaded', () => {
+        
+        // 타이핑 할 때마다 추천 목록 갱신
+        if (searchInput) {
+            searchInput.addEventListener('input', showSuggestions);
+            
+            // 엔터키 누르면 바로 검색
+            searchInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    suggestionBox.style.display = 'none'; // 엔터치면 목록 닫기
+                    performSearch();
+                }
+            });
+        }
+
+        // 돋보기 버튼 클릭
+        if (searchBtn) {
+            searchBtn.addEventListener('click', () => performSearch());
+        }
+
+        // 화면의 다른 곳을 클릭하면 목록 닫기
+        document.addEventListener('click', (e) => {
+            if (!searchInput.contains(e.target) && !suggestionBox.contains(e.target)) {
+                suggestionBox.style.display = 'none';
+            }
+        });
+    });
+</script>
 </body>
-</html>
+</html> 

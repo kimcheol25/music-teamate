@@ -1,119 +1,205 @@
-function updateClock() {
-    const clockElement = document.getElementById('digitalClock');
-    if (clockElement) {
-        const now = new Date();
-        clockElement.innerText = now.toLocaleTimeString('ko-KR', { hour12: false });
-    }
-}
-setInterval(updateClock, 1000);
-
-function scrollToPlayer() {
-    const player = document.getElementById('spotifyPlayer');
-    if (player) {
-        player.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        player.style.border = "2px solid #1ED760";
-        setTimeout(() => { player.style.border = "1px solid #333"; }, 1500);
-    }
-}
-
-function renderCalendar() {
-    const grid = document.getElementById('calendarGrid');
-    if (!grid) return;
-    const now = new Date();
-    const currentMonth = now.getMonth();
-    const currentYear = now.getFullYear();
-    const today = now.getDate();
-    document.getElementById('calMonth').innerText = (currentMonth + 1) + "월";
-    document.getElementById('calYear').innerText = currentYear;
-    const firstDay = new Date(currentYear, currentMonth, 1).getDay();
-    const lastDate = new Date(currentYear, currentMonth + 1, 0).getDate();
-    let html = "";
-    const days = ['일', '월', '화', '수', '목', '금', '토'];
-    days.forEach(day => html += `<div style="color:#888; font-size:0.7rem;">${day}</div>`);
-    for (let i = 0; i < firstDay; i++) html += `<div></div>`;
-    for (let i = 1; i <= lastDate; i++) {
-        if (i === today) html += `<div style="background:#1ED760; color:black; border-radius:50%; font-weight:bold; padding:5px;">${i}</div>`;
-        else html += `<div style="padding:5px; color:#ccc;">${i}</div>`;
-    }
-    grid.innerHTML = html;
-}
-
-function filterByMood(selectedMood) {
-    const cards = document.querySelectorAll('.d-card');
-    cards.forEach(card => {
-        const moods = card.getAttribute('data-mood');
-        if (selectedMood === 'all' || (moods && moods.includes(selectedMood))) {
-            card.style.display = 'flex';
-        } else {
-            card.style.display = 'none';
-        }
-    });
-}
-
-function loadPosts() {
-    const boardList = document.getElementById('boardList');
-    if (!boardList) return;
-    const posts = JSON.parse(localStorage.getItem('musicBoardPosts')) || [];
-    boardList.innerHTML = "";
-    posts.forEach(p => {
-        const li = document.createElement('li');
-        li.style.padding = "5px 0";
-        li.innerHTML = `<span style="color:#1ED760; font-weight:bold;">${p.name}</span> <span style="margin-left:10px;">${p.msg}</span>`;
-        boardList.prepend(li);
-    });
-}
-
-function addPost() {
-    const name = document.getElementById('boardName').value;
-    const msg = document.getElementById('boardMsg').value;
-    if(!name || !msg) return alert("입력해주세요");
-    const posts = JSON.parse(localStorage.getItem('musicBoardPosts')) || [];
-    posts.push({ name, msg });
-    localStorage.setItem('musicBoardPosts', JSON.stringify(posts));
-    document.getElementById('boardMsg').value = "";
-    loadPosts();
-}
-
-function recommendMusic() {
-    const input = document.getElementById('moodInput').value;
-    const resultBox = document.getElementById('recommendResult');
-    if (!input) { alert("기분을 입력해주세요!"); return; }
-    let song = "아이유 - 밤편지"; 
-    if (input.includes("우울")) song = "박효신 - 야생화";
-    else if (input.includes("신나")) song = "NewJeans - Hype Boy";
-    else if (input.includes("파티")) song = "싸이 - 챔피언";
-    else if (input.includes("차분")) song = "조성진 - 달빛";
-    const url = `https://www.youtube.com/results?search_query=${encodeURIComponent(song)}`;
-    resultBox.innerHTML = `<div onclick="window.open('${url}','_blank')" style="cursor:pointer; width:100%;">추천곡: <u>${song}</u> (클릭)</div>`;
-}
-
-/* ==================================================
-   [NEW] 사이드바 메뉴 이동 및 활성화 함수
-   ================================================== */
-function movePage(event, targetId, clickedLink) {
-    event.preventDefault(); // 기본 이동 방지
-
-    // 1. 모든 메뉴의 Active 상태 제거
-    const allLinks = document.querySelectorAll('.d-menu a');
-    allLinks.forEach(link => link.classList.remove('active'));
+document.addEventListener('DOMContentLoaded', () => {
     
-    // 2. 현재 클릭한 메뉴 Active 상태 추가
-    clickedLink.classList.add('active');
-
-    // 3. 스크롤 이동
-    const mainContainer = document.querySelector('.d-main');
-    if (targetId === 'top') {
-        mainContainer.scrollTo({ top: 0, behavior: 'smooth' });
-    } else {
-        const targetElement = document.getElementById(targetId);
-        if (targetElement) {
-            targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    /* ------------------------------------------------
+       1. 기본 기능 (시계, 다크모드, 차트 버튼)
+       ------------------------------------------------ */
+    
+    // [시계]
+    function updateClock() {
+        const now = new Date();
+        const timeElement = document.getElementById('digital-clock');
+        const dateElement = document.getElementById('date-display');
+        
+        if(timeElement) {
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+            timeElement.textContent = `${hours}:${minutes}:${seconds}`;
+        }
+        if(dateElement) {
+            const year = now.getFullYear();
+            const month = String(now.getMonth() + 1).padStart(2, '0');
+            const day = String(now.getDate()).padStart(2, '0');
+            const days = ['일', '월', '화', '수', '목', '금', '토'];
+            dateElement.textContent = `${year}-${month}-${day} (${days[now.getDay()]})`;
         }
     }
-}
-
-window.onload = function() {
+    setInterval(updateClock, 1000);
     updateClock();
-    renderCalendar();
-    loadPosts();
-};
+
+    // [다크모드]
+    const themeBtn = document.getElementById('theme-toggle');
+    if(themeBtn) {
+        themeBtn.addEventListener('click', () => {
+            document.body.classList.toggle('light-mode');
+            const icon = themeBtn.querySelector('i');
+            if(document.body.classList.contains('light-mode')) {
+                icon.className = 'fa-solid fa-sun';
+            } else {
+                icon.className = 'fa-solid fa-moon';
+            }
+        });
+    }
+
+    // [차트 듣기 버튼 스크롤]
+    const chartBtn = document.getElementById('play-chart-btn');
+    const spotifySection = document.getElementById('spotify-player');
+    if(chartBtn && spotifySection) {
+        chartBtn.addEventListener('click', () => {
+            spotifySection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        });
+    }
+
+
+    /* ------------------------------------------------
+       2. MOOD 버튼 기능 (강조 효과 + 스크롤)
+       ------------------------------------------------ */
+    const moodBtns = document.querySelectorAll('.mood-btn');
+    const genreCards = document.querySelectorAll('.genre-card');
+
+    moodBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            // 1. 기존 강조 효과 모두 제거
+            genreCards.forEach(c => c.classList.remove('highlight-card'));
+
+            // 2. data-target 가져오기 (예: genre-kpop, genre-dance)
+            const targetIds = btn.getAttribute('data-target').split(',');
+            let firstCard = null;
+            let foundAny = false;
+
+            targetIds.forEach(id => {
+                const card = document.getElementById(id.trim());
+                if(card) {
+                    foundAny = true;
+                    // 클래스 추가 (CSS 애니메이션 작동)
+                    card.classList.add('highlight-card');
+                    if(!firstCard) firstCard = card;
+                }
+            });
+
+            // 3. 카드가 있는 경우 스크롤 이동, 없으면 안내
+            if (foundAny) {
+                if(firstCard) firstCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                
+                // 3초 뒤에 강조 효과 자동으로 끄기
+                setTimeout(() => {
+                    genreCards.forEach(c => c.classList.remove('highlight-card'));
+                }, 3000);
+            } else {
+                alert("이 기능은 '홈 화면(장르 목록)'에서만 작동합니다. 홈 버튼을 눌러주세요!");
+            }
+        });
+    });
+
+
+    /* ------------------------------------------------
+       3. 신청곡 & 수다방 (채팅 시뮬레이션)
+       ------------------------------------------------ */
+    const submitBtn = document.querySelector('.submit-btn');
+    const requestInput = document.querySelector('.request-input');
+    const requestArea = document.querySelector('.request-area');
+    const chatBox = document.querySelector('.chat-box');
+
+    if(submitBtn) {
+        // 채팅 로그 영역 생성
+        let chatLog = document.getElementById('chat-log');
+        if(!chatLog) {
+            chatLog = document.createElement('div');
+            chatLog.id = 'chat-log';
+            chatBox.appendChild(chatLog);
+        }
+
+        submitBtn.addEventListener('click', () => {
+            const title = requestInput.value.trim();
+            const msg = requestArea.value.trim();
+
+            if (!title && !msg) {
+                alert("제목이나 내용을 입력해주세요!");
+                return;
+            }
+
+            // 등록 성공 알림
+            alert("✅ 신청곡이 등록되었습니다! 관리자가 곧 확인합니다.");
+
+            // 화면에 채팅 추가
+            const newMsg = document.createElement('div');
+            newMsg.style.marginBottom = '10px';
+            newMsg.style.padding = '10px';
+            newMsg.style.background = 'rgba(255,255,255,0.08)';
+            newMsg.style.borderRadius = '8px';
+            
+            const time = new Date().toLocaleTimeString('ko-KR', {hour: '2-digit', minute:'2-digit'});
+            
+            newMsg.innerHTML = `
+                <div style="color: var(--accent-green); font-weight:bold; font-size:0.85rem; margin-bottom:4px;">
+                    <i class="fa-solid fa-user"></i> 익명 [${time}]
+                </div>
+                <div style="font-weight:bold; font-size:1rem;">🎵 ${title || '사연 신청'}</div>
+                <div style="color: var(--text-secondary); margin-top:4px;">${msg}</div>
+            `;
+            
+            chatLog.prepend(newMsg); // 최신 글을 맨 위로
+
+            // 입력창 초기화
+            requestInput.value = '';
+            requestArea.value = '';
+        });
+    }
+
+
+    /* ------------------------------------------------
+       4. AI DJ 추천 (유튜브 연동)
+       ------------------------------------------------ */
+    const aiBtn = document.getElementById('ai-btn');
+    const aiResult = document.getElementById('ai-result');
+    const recommendText = document.querySelector('.recommend-text');
+    const ytLink = document.getElementById('yt-link');
+    const aiInput = document.getElementById('ai-input');
+
+    // 추천 데이터베이스
+    const playlist = [
+        { song: "Hype Boy", artist: "NewJeans", desc: "청량하고 트렌디한 무드가 필요할 때" },
+        { song: "Event Horizon", artist: "Younha", desc: "우주를 건너온 듯한 벅차오르는 감성" },
+        { song: "Seven", artist: "Jungkook", desc: "세련된 팝 사운드와 리듬감" },
+        { song: "Love Lee", artist: "AKMU", desc: "사랑스럽고 톡톡 튀는 기분 전환" },
+        { song: "Fighting", artist: "BSS", desc: "지친 하루에 파이팅을 불어넣는 노래" },
+        { song: "I AM", artist: "IVE", desc: "자신감 넘치는 하루를 시작할 때" },
+        { song: "Spicy", artist: "aespa", desc: "매콤하고 강렬한 여름 맛" },
+        { song: "Super Shy", artist: "NewJeans", desc: "몽글몽글하고 설레는 비트" }
+    ];
+
+    if(aiBtn && aiResult) {
+        aiBtn.addEventListener('click', () => {
+            const userKeyword = aiInput.value; // 사용자가 입력한 검색어 (예: 비오는 날)
+            
+            // 1. 로딩 표시
+            recommendText.innerHTML = `<i class="fa-solid fa-compact-disc fa-spin"></i> AI가 취향을 분석 중입니다...`;
+            aiResult.style.display = 'block';
+            ytLink.style.display = 'none'; // 링크 버튼 잠시 숨김
+
+            setTimeout(() => {
+                // 2. 랜덤 곡 선택
+                const pick = playlist[Math.floor(Math.random() * playlist.length)];
+                
+                // 3. 유튜브 검색 URL 생성
+                // (사용자가 검색어를 입력했으면 그걸 포함해서 검색, 아니면 추천곡만 검색)
+                const searchQuery = encodeURIComponent(`${pick.artist} ${pick.song} audio`);
+                const youtubeUrl = `https://www.youtube.com/results?search_query=${searchQuery}`;
+
+                // 4. 결과 화면 표시
+                recommendText.innerHTML = `
+                    <div style="font-size:0.9rem; color:#bbb; margin-bottom:5px;">AI의 추천 픽!</div>
+                    <strong style="color:var(--accent-green); font-size:1.2rem;">${pick.song}</strong>
+                    <div style="font-size:1rem; margin-top:2px;">- ${pick.artist} -</div>
+                    <div style="margin-top:10px; font-size:0.9rem; color:#ddd;">"${pick.desc}"</div>
+                `;
+                
+                // 5. 버튼에 유튜브 링크 연결
+                ytLink.href = youtubeUrl;
+                ytLink.style.display = 'inline-block';
+                ytLink.innerHTML = `<i class="fa-brands fa-youtube"></i> 유튜브에서 듣기`;
+                
+            }, 1000); // 1초 뒤 결과 출력
+        });
+    }
+});
