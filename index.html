@@ -147,7 +147,6 @@
 
     <script src="script.js"></script>
 <script>
-    // 1. 데이터 정의 (이전과 동일)
     const musicPages = [
         { file: 'KPOP.html', keywords: ['케이팝', 'kpop', 'k-pop', '가요'] },
         { file: 'pop-rock.html', keywords: ['팝', 'pop', '팝송'] },
@@ -183,7 +182,7 @@
     const suggestionBox = document.getElementById('suggestion-box');
     const searchBtn = document.getElementById('search-btn');
 
-    // 2. 검색 실행 함수 (페이지 이동)
+
     function performSearch(query) {
         if (!query) {
             query = searchInput.value.toLowerCase().trim().replace(/\s+/g, '');
@@ -207,43 +206,43 @@
         }
     }
 
-    // 3. 추천 검색어 표시 함수 (핵심 기능)
+
     function showSuggestions() {
         const query = searchInput.value.toLowerCase().trim();
-        suggestionBox.innerHTML = ''; // 기존 목록 초기화
+        suggestionBox.innerHTML = ''; 
 
         if (query.length < 1) {
             suggestionBox.style.display = 'none';
             return;
         }
 
-        // 입력된 단어가 포함된 키워드 찾기
+
         let matches = [];
         musicPages.forEach(page => {
             page.keywords.forEach(keyword => {
                 if (keyword.toLowerCase().includes(query)) {
-                    // 중복 방지 및 객체 형태로 저장
+                   
                     matches.push({ text: keyword, file: page.file });
                 }
             });
         });
 
-        // 결과가 있으면 목록 보여주기
+
         if (matches.length > 0) {
             suggestionBox.style.display = 'block';
             
-            // 중복 제거 (Set 사용) - 같은 키워드가 여러 번 뜨는 것 방지
+           
             const uniqueMatches = [...new Map(matches.map(item => [item.text, item])).values()];
 
             uniqueMatches.forEach(match => {
                 const div = document.createElement('div');
                 div.classList.add('suggestion-item');
-                div.innerHTML = `<i class="fa-solid fa-music"></i> ${match.text}`; // 아이콘 + 텍스트
+                div.innerHTML = `<i class="fa-solid fa-music"></i> ${match.text}`; 
                 
-                // 목록 클릭 시 바로 이동
+         
                 div.onclick = () => {
-                    searchInput.value = match.text; // 클릭한 텍스트를 검색창에 넣고
-                    window.location.href = match.file; // 페이지 이동
+                    searchInput.value = match.text; 
+                    window.location.href = match.file; 
                     suggestionBox.style.display = 'none';
                 };
                 
@@ -254,28 +253,28 @@
         }
     }
 
-    // 4. 이벤트 리스너 연결
+
     document.addEventListener('DOMContentLoaded', () => {
         
-        // 타이핑 할 때마다 추천 목록 갱신
+
         if (searchInput) {
             searchInput.addEventListener('input', showSuggestions);
             
-            // 엔터키 누르면 바로 검색
+ 
             searchInput.addEventListener('keypress', (e) => {
                 if (e.key === 'Enter') {
-                    suggestionBox.style.display = 'none'; // 엔터치면 목록 닫기
+                    suggestionBox.style.display = 'none'; 
                     performSearch();
                 }
             });
         }
 
-        // 돋보기 버튼 클릭
+    
         if (searchBtn) {
             searchBtn.addEventListener('click', () => performSearch());
         }
 
-        // 화면의 다른 곳을 클릭하면 목록 닫기
+     
         document.addEventListener('click', (e) => {
             if (!searchInput.contains(e.target) && !suggestionBox.contains(e.target)) {
                 suggestionBox.style.display = 'none';
