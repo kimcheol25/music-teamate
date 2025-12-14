@@ -6,5 +6,5 @@
 
 ## 🖼️ 프로젝트 첨부 이미지
 
-![첫 번째 첨부 파일](images/KakaoTalk_20251201_100329983.jpg)
-![두 번째 첨부 파일](images/KakaoTalk_20251201_100330261.jpg)
+<img src="images/KakaoTalk_20251201_100329983.jpg" alt="첫 번째 첨부 파일" width="400">
+<img src="images/KakaoTalk_20251201_100330261.jpg" alt="두 번째 첨부 파일" width="400">
