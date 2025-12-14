@@ -10,4 +10,96 @@
 <img src="images/KakaoTalk_20251201_100330261.jpg" alt="두 번째 첨부 파일" width="400">
 가장 처음 회의할때 구성하기로 결정한 메인 페이지와 세부 페이지 모양입니다.
 
-홈페이지 변화 과정
+홈페이지 변화 과정(2025.12.04 ~ 2025.12.09)
+프로젝트의 홈페이지 발전 과정을 시간 순서대로 기록했습니다.
+
+<table>
+  <tr>
+    <td align="center">
+      <img src="./images/01.png" width="180px;" alt="초기 구상"/><br/>
+      <sub>2025.12.04<br/>초기 레이아웃</sub>
+    </td>
+    <td align="center">
+      <img src="./images/02.png" width="180px;" alt="메인 배너"/><br/>
+      <sub>2025.12.04<br/>메인 배너 작업</sub>
+    </td>
+    <td align="center">
+      <img src="./images/03.png" width="180px;" alt="그리드 구성"/><br/>
+      <sub>2025.12.04<br/>그리드 레이아웃</sub>
+    </td>
+    <td align="center">
+      <img src="./images/04.png" width="180px;" alt="다크 모드"/><br/>
+      <sub>2025.12.04<br/>기본 테마 설정</sub>
+    </td>
+    <td align="center">
+      <img src="./images/05.png" width="180px;" alt="로그인 화면"/><br/>
+      <sub>2025.12.08<br/>로그인 모달 구현</sub>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <img src="./images/06.png" width="180px;" alt="아이콘 메뉴"/><br/>
+      <sub>2025.12.08<br/>장르별 아이콘</sub>
+    </td>
+    <td align="center">
+      <img src="./images/07.png" width="180px;" alt="리스트 뷰"/><br/>
+      <sub>2025.12.08<br/>TOP 10 리스트</sub>
+    </td>
+    <td align="center">
+      <img src="./images/08.png" width="180px;" alt="플레이어 바"/><br/>
+      <sub>2025.12.08<br/>하단 플레이어 바</sub>
+    </td>
+    <td align="center">
+      <img src="./images/09.png" width="180px;" alt="상세 페이지"/><br/>
+      <sub>2025.12.08<br/>상세 정보 UI</sub>
+    </td>
+    <td align="center">
+      <img src="./images/10.png" width="180px;" alt="와이어프레임 수정"/><br/>
+      <sub>2025.12.08<br/>레이아웃 피드백</sub>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <img src="./images/11.png" width="180px;" alt="구조 개선"/><br/>
+      <sub>2025.12.08<br/>메뉴 구조 개선</sub>
+    </td>
+    <td align="center">
+      <img src="./images/12.png" width="180px;" alt="사이드바"/><br/>
+      <sub>2025.12.08<br/>사이드바 적용</sub>
+    </td>
+    <td align="center">
+      <img src="./images/13.png" width="180px;" alt="UI 디테일"/><br/>
+      <sub>2025.12.08<br/>UI 디테일 수정</sub>
+    </td>
+    <td align="center">
+      <img src="./images/14.png" width="180px;" alt="컬러 테마"/><br/>
+      <sub>2025.12.09<br/>메인 컬러 적용</sub>
+    </td>
+    <td align="center">
+      <img src="./images/15.png" width="180px;" alt="플레이리스트"/><br/>
+      <sub>2025.12.09<br/>플레이리스트 뷰</sub>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <img src="./images/16.png" width="180px;" alt="차트 그래프"/><br/>
+      <sub>2025.12.09<br/>통계/차트 영역</sub>
+    </td>
+    <td align="center">
+      <img src="./images/17.png" width="180px;" alt="텍스트 정리"/><br/>
+      <sub>2025.12.09<br/>타이포그래피 정리</sub>
+    </td>
+    <td align="center">
+      <img src="./images/18.png" width="180px;" alt="설명 추가"/><br/>
+      <sub>2025.12.09<br/>콘텐츠 설명 추가</sub>
+    </td>
+    <td align="center">
+      <img src="./images/19.png" width="180px;" alt="최종 점검 1"/><br/>
+      <sub>2025.12.09<br/>최종 디자인 A</sub>
+    </td>
+    <td align="center">
+      <img src="./images/20.png" width="180px;" alt="최종 점검 2"/><br/>
+      <sub>2025.12.09<br/>최종 디자인 B</sub>
+    </td>
+  </tr>
+</table>
